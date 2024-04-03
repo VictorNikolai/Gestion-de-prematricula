@@ -7,8 +7,8 @@
 ---
 
 - [Descripción](#Descripción)
-- [Integrantes:](#Integrantes:)
+- [Integrantes:](#Integrantes)
 
 
-## Integrantes:
+## Integrantes
 ---
