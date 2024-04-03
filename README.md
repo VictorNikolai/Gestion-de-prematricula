@@ -10,5 +10,5 @@
 - [Integrantes:](#Integrantes)
 
 
-## Integrantes
+## Integrantes:
 ---
