@@ -1,7 +1,7 @@
 <h1 align="center" id="title">Análisis y Diseño de Algoritmos</h1>
 <h2 align="center" id="title">GRUPO: Rezagados</h2>
 
-<p align="center"><img src ="https://github.com//VictorNikolai/Integrador-de-Sistemas-Soluciones-Escalables/blob/main/Imagenes/lm.jpg" width="600px"></p>
+<p align="center"><img src ="https://github.com/VictorNikolai/Integrador-de-Sistemas-Soluciones-Escalables/blob/main/Imagenes/lm.jpg" width="600px"></p>
 
 
 
