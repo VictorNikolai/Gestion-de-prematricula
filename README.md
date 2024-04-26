@@ -1,6 +1,8 @@
 <h1 align="center" id="title">Análisis y Diseño de Algoritmos</h1>
+<h2 align="center" id="title">GRUPO: Rezagados</h2>
 
-![](https://github.com/VictorNikolai/PC4/blob/main/Imagenes/Ingenieria%20Inform%C3%A1tica.jpg)
+<p align="center"><img src ="https://github.com//VictorNikolai/Integrador-de-Sistemas-Soluciones-Escalables/blob/main/Imagenes/lm.jpg" width="600px"></p>
+
 
 
 ## Tabla de contenidos:
