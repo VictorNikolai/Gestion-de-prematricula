@@ -1,6 +1,6 @@
 # Proyecto de Análisis y Diseño de Algoritmos
 <h1 align="center" id="title">Análisis y Diseño de Algoritmos</h1>
-![](https://github.com/VictorNikolai/PC4/blob/main/Imagenes/Ingenieria%20Inform%C3%A1tica.jpg)
+
 
 - [Descripción](#Descripción)
 - [Integrantes:](#Integrantes)
