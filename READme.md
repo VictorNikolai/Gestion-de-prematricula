@@ -9,7 +9,8 @@
 ## Tabla de contenidos:
 ---
 - [Descripción](#Descripción)
-- [Integrantes:](#Integrantes)
+- [Integrantes:](#Figma)
+- [Figma:](#Integrantes)
 
 ## Descripción:
 
@@ -17,8 +18,12 @@ El presente proyecto de sistema tiene como objetivo desarrollar una herramienta 
 
 Como usuarios principales del sistema, los coordinadores de carrera enfrentan diversos desafíos en la organización de la oferta académica, desde la selección de los cursos a aperturar hasta la notificación a los docentes sobre sus horarios. Este proyecto busca brindar una solución tecnológica integral que simplifique y optimice estos procesos clave.
 
-https://acortar.link/Q5jQ0S
 
+
+## Figma:
+Este proyecto es parte de un trabajo grupal, esta plataforma ha sido diseñada para ofrecer a los administradores una herramienta eficaz y versátil para gestionar el proceso de matriculación de manera eficiente. Desde la asignación de cursos hasta la gestión de listas de espera, nuestro objetivo es proporcionar una solución integral que optimice cada paso del proceso.
+
+Link: https://acortar.link/Q5jQ0S
 
 
 
