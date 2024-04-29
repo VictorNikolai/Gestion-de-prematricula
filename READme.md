@@ -17,6 +17,9 @@ El presente proyecto de sistema tiene como objetivo desarrollar una herramienta 
 
 Como usuarios principales del sistema, los coordinadores de carrera enfrentan diversos desafíos en la organización de la oferta académica, desde la selección de los cursos a aperturar hasta la notificación a los docentes sobre sus horarios. Este proyecto busca brindar una solución tecnológica integral que simplifique y optimice estos procesos clave.
 
+[![Ver en Figma](https://www.figma.com/proto/rmlAaBpZI59t4OqP7fk4Ct/Prototipos-Hito-1?type=design&node-id=1-5&t=yAPIYRenRG8dpknH-0&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=1%3A5)
+
+
 
 ## Integrantes:
 - Saldaña Rodríguez, Sebastián Antonio 
