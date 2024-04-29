@@ -1,6 +1,12 @@
-# Proyecto de Análisis y Diseño de Algoritmos
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto de Análisis y Diseño de Algoritmos</title>
+</head>
+<body>
 <h1 align="center" id="title">Análisis y Diseño de Algoritmos</h1>
-
 [![algoritmos.jpg](https://i.postimg.cc/L84kRJP1/algoritmos.jpg)](https://postimg.cc/nC59Gc0F)
 
 ## Tabla de contenidos:
