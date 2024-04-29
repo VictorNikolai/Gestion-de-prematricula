@@ -1,7 +1,6 @@
-
-
+# Proyecto de Análisis y Diseño de Algoritmos
 <h1 align="center" id="title">Análisis y Diseño de Algoritmos</h1>
-![](https://i.postimg.cc/L84kRJP1/algoritmos.jpg)
+![](https://github.com/VictorNikolai/PC4/blob/main/Imagenes/Ingenieria%20Inform%C3%A1tica.jpg)
 
 ## Tabla de contenidos:
 ---
