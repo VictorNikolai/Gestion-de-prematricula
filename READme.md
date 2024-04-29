@@ -1,8 +1,9 @@
 <h1 align="center" id="title">Proyecto de Análisis y Diseño de Algoritmos
 <h1 align="center" id="title">Gestión de PreMatricula</h1>
 
-
-![Portada](https://www.iutepi.edu/wp-content/uploads/2023/05/algoritmos.jpeg).
+<div align="center">
+  <img src="https://www.iutepi.edu/wp-content/uploads/2023/05/algoritmos.jpeg" alt="Descripción de la imagen">
+</div>
 
 
 ## Tabla de contenidos:
