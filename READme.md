@@ -1,6 +1,6 @@
 # Proyecto de Análisis y Diseño de Algoritmos#
 <h1 align="center" id="title">Análisis y Diseño de Algoritmos</h1>
-[![algoritmos.jpg](https://i.postimg.cc/L84kRJP1/algoritmos.jpg)](https://postimg.cc/nC59Gc0F).
+[![](https://github.com/VictorNikolai/PC4/blob/main/Imagenes/algoritmos.jpeg?raw=true).
 
 ## Tabla de contenidos:
 ---
