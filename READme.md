@@ -1,7 +1,7 @@
 
 
 <h1 align="center" id="title">Análisis y Diseño de Algoritmos</h1>
-[![algoritmos.jpg](https://i.postimg.cc/L84kRJP1/algoritmos.jpg)](https://postimg.cc/nC59Gc0F).
+[![algoritmos.jpg](https://i.postimg.cc/L84kRJP1/algoritmos.jpg)](https://postimg.cc/nC59Gc0F)
 
 ## Tabla de contenidos:
 ---
