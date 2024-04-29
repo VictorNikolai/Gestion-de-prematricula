@@ -10,7 +10,6 @@
 ---
 - [Descripción](#Descripción)
 - [Integrantes:](#Figma)
-- [Figma:](#Integrantes)
 
 ## Descripción:
 
