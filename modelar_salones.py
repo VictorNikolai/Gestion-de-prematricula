@@ -1,17 +1,26 @@
 import streamlit as st
 import pandas as pd
+import os
+
+def load_data():
+    if os.path.exists('salones.csv'):
+        return pd.read_csv('salones.csv')
+    else:
+        salones_data = {
+            'Salón': ['A101', 'B202', 'C303', 'D404'],
+            'Capacidad': [30, 40, 50, 35],
+            'Ubicación': ['Edificio A', 'Edificio B', 'Edificio C', 'Edificio D']
+        }
+        return pd.DataFrame(salones_data)
+
+def save_data(salones):
+    salones.to_csv('salones.csv', index=False)
 
 def app():
     st.title("Modelar Salones - UPCH")
 
-    # Datos de ejemplo para salones
-    salones_data = {
-        'Salón': ['A101', 'B202', 'C303', 'D404'],
-        'Capacidad': [30, 40, 50, 35],
-        'Ubicación': ['Edificio A', 'Edificio B', 'Edificio C', 'Edificio D']
-    }
-
-    salones = pd.DataFrame(salones_data)
+    # Cargar datos de salones
+    salones = load_data()
 
     st.write("## Salones Disponibles")
     st.write(salones)
@@ -25,9 +34,14 @@ def app():
         submit = st.form_submit_button("Añadir")
 
         if submit:
-            new_salon = {'Salón': salon, 'Capacidad': capacidad, 'Ubicación': ubicacion}
-            salones = salones.append(new_salon, ignore_index=True)
+            new_salon = pd.DataFrame({'Salón': [salon], 'Capacidad': [capacidad], 'Ubicación': [ubicacion]})
+            salones = pd.concat([salones, new_salon], ignore_index=True)
+            save_data(salones)
             st.success(f"Salón {salon} añadido exitosamente")
+            st.experimental_rerun()
 
     st.write("## Salones Actualizados")
     st.write(salones)
+
+if __name__ == '__main__':
+    app()
