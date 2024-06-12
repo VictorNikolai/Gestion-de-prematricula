@@ -43,5 +43,17 @@ def app():
     st.write("## Salones Actualizados")
     st.write(salones)
 
+    # Permitir eliminar salones
+    with st.form(key='delete_salon'):
+        st.write("### Eliminar Salón")
+        salon_to_delete = st.selectbox("Selecciona un salón para eliminar", salones['Salón'])
+        submit_delete = st.form_submit_button("Eliminar")
+
+        if submit_delete:
+            salones = salones[salones['Salón'] != salon_to_delete]
+            save_data(salones)
+            st.success(f"Salón {salon_to_delete} eliminado exitosamente")
+            st.experimental_rerun()
+
 if __name__ == '__main__':
     app()
