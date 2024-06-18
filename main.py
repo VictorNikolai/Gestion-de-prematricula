@@ -32,7 +32,7 @@ if "logged_in" not in st.session_state:
 
 # Función de inicio de sesión
 def login():
-    background_url = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/universidad.jpg"
+    background_url = "https://360.cayetano.edu.pe/wp-content/uploads/sites/25/2024/03/53135168333_7b780465e9_k.jpg"
     page_bg_img = f"""
         <style>
         .stApp {{
