@@ -1,3 +1,4 @@
+# home.py
 import streamlit as st
 
 def app():
@@ -24,28 +25,26 @@ def app():
 
     st.header("Selecciona una sección para comenzar:")
 
+    # Contenedor centrado para los botones y descripciones
     with st.markdown("<div class='centered'>", unsafe_allow_html=True):
+        # Botones para cada sección con texto descriptivo
         with st.markdown("<div class='button-container'>", unsafe_allow_html=True):
             if st.button("Sobre Cayetano"):
                 st.query_params["page"] = "sobre_cayetano"
                 st.write("Información sobre la historia y misión de la Universidad.")
         
-        with st.markdown("<div class='button-container'>", unsafe_allow_html=True):
             if st.button("Admisión"):
                 st.query_params["page"] = "admision"
                 st.write("Requisitos y procedimientos para el proceso de admisión.")
         
-        with st.markdown("<div class='button-container'>", unsafe_allow_html=True):
             if st.button("Teléfonos de Docentes"):
                 st.query_params["page"] = "telefonos_docentes"
                 st.write("Lista de números de teléfono para contactar a los docentes.")
         
-        with st.markdown("<div class='button-container'>", unsafe_allow_html=True):
             if st.button("Teléfonos de Ayuda"):
                 st.query_params["page"] = "telefonos_ayuda"
                 st.write("Números de contacto para recibir ayuda y soporte técnico.")
         
-        with st.markdown("<div class='button-container'>", unsafe_allow_html=True):
             if st.button("Teléfonos de Administración"):
                 st.query_params["page"] = "telefonos_administracion"
                 st.write("Contactos principales del departamento de administración.")
