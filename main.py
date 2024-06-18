@@ -76,39 +76,5 @@ def login():
     st.subheader("Inicio de Sesión")
 
     with st.form(key="login_form"):
-        username = st.text_input("Usuario:", value="")
-        password = st.text_input("Contraseña:", type="password", value="")
-        submit = st.form_submit_button("Iniciar Sesión")
-
-    if submit:
-        if username == User and password == Password:
-            st.session_state.logged_in = True
-            st.success("¡Inicio de sesión exitoso!")
-            st.balloons()
-            st.experimental_rerun()
-        else:
-            st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
-
-# Mostrar la página de inicio de sesión si el usuario no ha iniciado sesión
-if not st.session_state.logged_in:
-    login()
-else:
-    # Crear una instancia de la aplicación múltiple
-    app = MultiApp()
-
-    # Agregar todas las aplicaciones
-    app.add_app("Modelar Salones", modelar_salones_app)
-    app.add_app("Modelar Ambientes", modelar_ambientes_app)
-    app.add_app("Modelar Cursos", modelar_cursos_app)
-    app.add_app("Requerimiento de Ambientes", requerimiento_ambientes_app)
-    app.add_app("Asignación de Alumnos", asignacion_alumnos_app)
-    app.add_app("Optimización de Horarios", optimizar_horarios_app)
-
-    # Crear una barra de navegación en la parte superior
-    selected_app = st.selectbox("Selecciona una sección", [app['title'] for app in app.apps])
-
-    # Ejecutar la aplicación seleccionada
-    for app in app.apps:
-        if app['title'] == selected_app:
-            app['function']()
-            break
+        st.markdown('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+        username = st.text_input("Usuario:", value="",key="Username")
