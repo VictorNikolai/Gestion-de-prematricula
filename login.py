@@ -56,7 +56,8 @@ def login(encoded_logo, User, Password):
 
     st.subheader("Inicio de Sesión")
 
-    with st.form(key="login_form", class_="login-form"):
+    with st.form(key="login_form"):
+        st.markdown('<style>div[data-baseweb="input"] input {color: white !important;}</style>', unsafe_allow_html=True)
         username = st.text_input("Usuario:", value="")
         password = st.text_input("Contraseña:", type="password", value="")
         submit = st.form_submit_button("Iniciar Sesión")
@@ -69,3 +70,4 @@ def login(encoded_logo, User, Password):
             st.experimental_rerun()
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
+
