@@ -5,31 +5,36 @@ def app():
     st.title("Bienvenido a la Página de Inicio")
     st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
 
-    # Botones estilizados para cada funcionalidad
+    st.header("Descubre nuestras áreas principales:")
+
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        if st.button("Modelar Salones", key="modelar_salones_button"):
-            st.experimental_set_query_params(page="modelar_salones")
+        if st.button("Sobre Cayetano", key="sobre_cayetano_button"):
+            st.experimental_set_query_params(page="sobre_cayetano")
     
     with col2:
-        if st.button("Modelar Ambientes", key="modelar_ambientes_button"):
-            st.experimental_set_query_params(page="modelar_ambientes")
+        if st.button("Admisión", key="admision_button"):
+            st.experimental_set_query_params(page="admision")
     
     with col3:
-        if st.button("Modelar Cursos", key="modelar_cursos_button"):
-            st.experimental_set_query_params(page="modelar_cursos")
+        if st.button("Pregrado", key="pregrado_button"):
+            st.experimental_set_query_params(page="pregrado")
     
     with col1:
-        if st.button("Requerimiento de Ambientes", key="requerimiento_ambientes_button"):
-            st.experimental_set_query_params(page="requerimiento_ambientes")
+        if st.button("Posgrado", key="posgrado_button"):
+            st.experimental_set_query_params(page="posgrado")
     
     with col2:
-        if st.button("Asignación de Alumnos", key="asignacion_alumnos_button"):
-            st.experimental_set_query_params(page="asignacion_alumnos")
+        if st.button("Educación Continua", key="educacion_continua_button"):
+            st.experimental_set_query_params(page="educacion_continua")
     
     with col3:
-        if st.button("Optimización de Horarios", key="optimizar_horarios_button"):
-            st.experimental_set_query_params(page="optimizar_horarios")
+        if st.button("Investigación", key="investigacion_button"):
+            st.experimental_set_query_params(page="investigacion")
+    
+    with col1:
+        if st.button("Internacionalización", key="internacionalizacion_button"):
+            st.experimental_set_query_params(page="internacionalizacion")
 
     st.write("¡Explora y disfruta de la plataforma!")
