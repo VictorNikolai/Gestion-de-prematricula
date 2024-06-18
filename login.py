@@ -1,76 +1,41 @@
 import streamlit as st
 from PIL import Image
+import base64
 
-def app():
-    # Cargar la imagen de la insignia de la universidad
+def login(encoded_logo, User, Password):
     university_logo = Image.open("Logo_upch.png")
 
-    # Credenciales de inicio de sesión
-    User = "41650931"
-    Password = "cayetano"
+    set_background()
 
-    # Estilo CSS para el formulario de inicio de sesión
-    login_form_style = """
-        <style>
-        body {
-            background-color: black;
-            color: white;
-        }
-        .login-form {
-            max-width: 400px;
-            background-color: #333333;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 50px;
-        }
-        .login-form input[type="text"], 
-        .login-form input[type="password"] {
-            background-color: #444444;
-            color: white;
-            border: none;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            width: 100%;
-        }
-        .login-form input[type="submit"] {
-            background-color: #1f77b4;
-            color: white;
-            padding: 12px 15px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 100%;
-        }
-        </style>
-    """
-
-    # Mostrar estilo CSS para el formulario de inicio de sesión
-    st.markdown(login_form_style, unsafe_allow_html=True)
-
-    # Mostrar logo y título de la aplicación
     st.image(university_logo, width=200)
     st.title("🎓 Plataforma de Gestión de Cursos - UPCH")
     st.subheader("Inicio de Sesión")
 
-    # Formulario de inicio de sesión
-    with st.form(key="login_form", class_="login-form"):
+    with st.form(key="login_form"):
         username = st.text_input("Usuario:", value="")
         password = st.text_input("Contraseña:", type="password", value="")
         submit = st.form_submit_button("Iniciar Sesión")
 
-    # Procesamiento del formulario
     if submit:
         if username == User and password == Password:
+            st.session_state.logged_in = True
             st.success("¡Inicio de sesión exitoso!")
             st.balloons()
-            st.write("""
-            ## Bienvenido a la Plataforma de Gestión de Cursos de Ingeniería Informática - UPCH
-            En esta aplicación, podrás explorar los cursos de los 10 ciclos de la carrera de Ingeniería Informática en la Universidad Peruana Cayetano Heredia (UPCH). Descubre los cursos, sus prerrequisitos y detalles para planificar tu trayectoria académica de manera efectiva.
-            """)
+            st.experimental_rerun()
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
 
-if __name__ == "__main__":
-    app()
+def set_background():
+    background_url = "https://360.cayetano.edu.pe/wp-content/uploads/sites/25/2024/03/53135168333_7b780465e9_k.jpg"
+    page_bg_img = f"""
+        <style>
+        .stApp {{
+            background-image: url("{background_url}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+        </style>
+    """
+    st.markdown(page_bg_img, unsafe_allow_html=True)
 
