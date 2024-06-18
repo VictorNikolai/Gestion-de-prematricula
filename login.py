@@ -39,7 +39,7 @@ def app():
         </style>
     """
 
-    # Aplicar estilo al formulario de inicio de sesión
+    # Mostrar estilo CSS para el formulario de inicio de sesión
     st.markdown(login_form_style, unsafe_allow_html=True)
 
     # Mostrar logo y título de la aplicación
