@@ -1,12 +1,17 @@
 import streamlit as st
 from PIL import Image
+import urllib.request
 
 def app():
     # URL de la imagen de fondo en GitHub
     university_background_url = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/universidad.jpg"
 
     # Cargar la imagen de fondo desde la URL
-    university_background = Image.open(urllib.request.urlopen(university_background_url))
+    try:
+        university_background = Image.open(urllib.request.urlopen(university_background_url))
+    except Exception as e:
+        st.error(f"No se pudo cargar la imagen de fondo: {e}")
+        return
 
     # Establecer el estilo CSS para el fondo de pantalla
     background_style = f"""
