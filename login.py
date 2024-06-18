@@ -1,22 +1,17 @@
 import streamlit as st
+import pandas as pd
+from PIL import Image
 
 def app():
-    # URL de la imagen de fondo
-    background_url = "https://cayetano.edu.pe/wp-content/uploads/2023/02/universidad-fachada-2.jpg"
+    # Cargar la imagen de la insignia de la universidad
+    university_logo = Image.open("Logo_upch.png")
 
-    # Estilo CSS para el fondo de pantalla
-    background_style = f"""
-        <style>
-        .stApp {{
-            background-image: url('{background_url}');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-        </style>
-    """
-    st.markdown(background_style, unsafe_allow_html=True)
+    # Credenciales de inicio de sesión
+    User = "41650931"
+    Password = "cayetano"
 
+    # Crear el diseño del formulario de inicio de sesión
+    st.image(university_logo, width=200)
     st.title("🎓 Plataforma de Gestión de Cursos - UPCH")
     st.subheader("Inicio de Sesión")
 
@@ -26,9 +21,6 @@ def app():
         submit = st.form_submit_button("Iniciar Sesión")
 
     if submit:
-        User = "41650931"
-        Password = "cayetano"
-        
         if username == User and password == Password:
             st.success("¡Inicio de sesión exitoso!")
             st.balloons()
@@ -40,7 +32,3 @@ def app():
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
     else:
         st.warning("Por favor, inicie sesión para continuar.")
-
-if __name__ == "__main__":
-    app()
-
