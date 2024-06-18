@@ -5,8 +5,6 @@ def app():
     st.title("Bienvenido a la Página de Inicio")
     st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
 
-    st.header("Selecciona una sección para comenzar:")
-
     # Botones estilizados para cada funcionalidad
     col1, col2, col3 = st.columns(3)
 
