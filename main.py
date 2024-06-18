@@ -6,67 +6,55 @@ from modelar_cursos import app as modelar_cursos_app
 from requerimiento_ambientes import app as requerimiento_ambientes_app
 from asignacion_alumnos import app as asignacion_alumnos_app
 from optimizar_horarios import app as optimizar_horarios_app
-import pandas as pd
 from PIL import Image
-import os
-import base64
+
+# Definir la imagen de fondo
+university_background = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/universidad.jpg"
+
+# Estilo de fondo
+background_style = f"""
+    <style>
+    body {{
+        background-image: url('{university_background}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }}
+    .stApp {{
+        background-color: rgba(255, 255, 255, 0.9);  /* Fondo semi-transparente para mejor legibilidad */
+        padding: 1rem;
+        min-height: 100vh;  /* Ajustar al tamaño de la ventana */
+    }}
+    </style>
+"""
+st.markdown(background_style, unsafe_allow_html=True)
 
 # Configurar el diseño de la página sin icono
 st.set_page_config(layout="wide", initial_sidebar_state='collapsed', page_title="Gestión de Cursos UPCH", page_icon=":mortar_board:")
 
-# Obtener la ruta del directorio actual
-current_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Ruta al logo
-logo_path = os.path.join(current_dir, "logo_upch.png")
+# Ruta al logo (ajusta según tu estructura de directorios)
+logo_path = "logo_upch.png"
 
 # Cargar el logo y convertir a base64
-with open(logo_path, "rb") as image_file:
-    encoded_logo = base64.b64encode(image_file.read()).decode()
+try:
+    with open(logo_path, "rb") as image_file:
+        encoded_logo = base64.b64encode(image_file.read()).decode()
+except FileNotFoundError:
+    st.warning("No se encontró el archivo del logo.")
 
-# Ruta al fondo de la universidad
-university_background = os.path.join(current_dir, "universidad.jpg")
+# Credenciales de inicio de sesión
+User = "41650931"
+Password = "cayetano"
 
 # Variable de estado para verificar si el usuario ha iniciado sesión
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
-# Función para cargar el estilo de fondo
-def load_background_style():
-    background_style = f"""
-        <style>
-        body {{
-            background-image: url('file://{university_background}');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-        .header-container {{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 2rem;
-        }}
-        .header-container img {{
-            max-height: 100px;
-            margin-right: 20px;
-        }}
-        .header-container h1 {{
-            font-size: 2.5rem;
-            margin: 0;
-            color: white;  /* Color del texto */
-        }}
-        </style>
-    """
-    st.markdown(background_style, unsafe_allow_html=True)
-
 # Función de inicio de sesión
 def login():
-    load_background_style()  # Cargar el estilo de fondo para la pantalla de inicio de sesión
-
     st.markdown(f"""
-        <div class="header-container">
-            <img src="data:image/png;base64,{encoded_logo}" alt="Logo UPCH">
+        <div style='text-align: center;'>
+            <img src="data:image/png;base64,{encoded_logo}" alt="Logo UPCH" width="100">
             <h1>Plataforma de Gestión de Cursos - UPCH</h1>
         </div>
     """, unsafe_allow_html=True)
@@ -102,8 +90,6 @@ else:
     app.add_app("Asignación de Alumnos", asignacion_alumnos_app)
     app.add_app("Optimización de Horarios", optimizar_horarios_app)
 
-    load_background_style()  # Cargar el estilo de fondo para las otras secciones de la aplicación
-
     # Crear una barra de navegación en la parte superior
     selected_app = st.selectbox("Selecciona una sección", [app['title'] for app in app.apps])
 
@@ -111,4 +97,4 @@ else:
     for app in app.apps:
         if app['title'] == selected_app:
             app['function']()
-
+            break
