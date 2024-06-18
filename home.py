@@ -1,59 +1,32 @@
-# home.py
 import streamlit as st
 
-def app():
-    st.title("Bienvenido a la Página de Inicio")
-    st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
-    
-    st.markdown(
-        """
-        <style>
-        .title {
-            text-align: center;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+def main():
+    st.title("Mi Aplicación con Streamlit")
 
-    st.header("Descubre nuestras áreas principales:")
+    # Lee los parámetros de consulta
+    page = st.query_params.get("page", "home")
 
-    col1, col2, col3 = st.columns(3)
+    if page == "home":
+        st.header("Bienvenido a la Página de Inicio")
+        st.write("Esta es la página principal de la aplicación.")
 
-    with col1:
-        if st.button("Sobre Cayetano", key="sobre_cayetano_button"):
-            st.write("Información detallada sobre la Universidad Cayetano Heredia.")
-            st.experimental_set_query_params(page="sobre_cayetano")
+        if st.button("Ir a la página de detalles"):
+            st.query_params["page"] = "details"
 
-    with col2:
-        if st.button("Admisión", key="admision_button"):
-            st.write("Proceso de admisión para nuevos estudiantes.")
-            st.experimental_set_query_params(page="admision")
+    elif page == "details":
+        st.header("Detalles de la Página")
+        st.write("Estos son los detalles de la página seleccionada.")
 
-    with col3:
-        if st.button("Pregrado", key="pregrado_button"):
-            st.write("Información sobre programas de pregrado ofrecidos.")
-            st.experimental_set_query_params(page="pregrado")
+        if st.button("Volver a la página de inicio"):
+            st.query_params["page"] = "home"
 
-    with col1:
-        if st.button("Posgrado", key="posgrado_button"):
-            st.write("Información sobre programas de posgrado ofrecidos.")
-            st.experimental_set_query_params(page="posgrado")
+    # Enlaces de navegación
+    st.write("Navega usando los enlaces:")
+    if st.button("Ir a la página de inicio"):
+        st.query_params["page"] = "home"
+    if st.button("Ir a la página de detalles"):
+        st.query_params["page"] = "details"
 
-    with col2:
-        if st.button("Educación Continua", key="educacion_continua_button"):
-            st.write("Oferta de educación continua y cursos.")
-            st.experimental_set_query_params(page="educacion_continua")
-
-    with col3:
-        if st.button("Investigación", key="investigacion_button"):
-            st.write("Actividades de investigación y proyectos.")
-            st.experimental_set_query_params(page="investigacion")
-
-    with col1:
-        if st.button("Internacionalización", key="internacionalizacion_button"):
-            st.write("Programas y actividades internacionales.")
-            st.experimental_set_query_params(page="internacionalizacion")
-
-    st.write("¡Explora y disfruta de la plataforma!")
+if __name__ == "__main__":
+    main()
 
