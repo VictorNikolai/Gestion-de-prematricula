@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 
 def app():
-    university_background = "universidad.jpg"  # Ruta local de la imagen
+    university_background = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/universidad.jpg"
 
     User = "41650931"
     Password = "cayetano"
@@ -42,4 +42,3 @@ def app():
 
 if __name__ == "__main__":
     app()
-
