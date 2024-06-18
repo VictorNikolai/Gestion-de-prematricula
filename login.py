@@ -51,7 +51,7 @@ def login(encoded_logo, User, Password):
             st.session_state.logged_in = True
             st.success("¡Inicio de sesión exitoso!")
             st.balloons()
-            # Redirigir a la página de inicio (home)
+            # Redirigir a la página home después del inicio de sesión
             st.query_params["page"] = "home"
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
@@ -69,7 +69,7 @@ def set_background():
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100vh; /* Ajusta según tus necesidades */
         }}
         </style>
     """
