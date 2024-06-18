@@ -43,7 +43,7 @@ else:
     app.add_app("Optimización de Horarios", optimizar_horarios_app)
 
     # Obtener el valor de la página desde los parámetros de consulta
-    page = st.experimental_get_query_params().get("page", "home")
+    page = st.query_params.get("page", "home")
 
     # Seleccionar la página para mostrar
     selected_app = page
@@ -52,4 +52,3 @@ else:
         if app_page['title'] == selected_app:
             app_page['function']()
             break
-
