@@ -69,9 +69,8 @@ def set_background():
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Ajusta según tus necesidades */
+            height: 100vh;
         }}
         </style>
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
-
