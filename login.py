@@ -5,7 +5,7 @@ import base64
 
 def login(encoded_logo, User, Password):
     # Cargar la imagen de la insignia de la universidad
-    university_logo = Image.open("Logo_upch.png")
+    university_logo = Image.open("logo_upch.png")
 
     # Establecer el fondo de pantalla
     set_background()
