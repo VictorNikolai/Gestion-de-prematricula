@@ -8,6 +8,7 @@ from asignacion_alumnos import app as asignacion_alumnos_app
 from optimizar_horarios import app as optimizar_horarios_app
 import os
 import base64
+from PIL import Image
 
 # Configurar el diseño de la página sin icono
 st.set_page_config(layout="wide", initial_sidebar_state='collapsed', page_title="Gestión de Cursos UPCH")
@@ -50,31 +51,79 @@ set_background()
 
 # Función de inicio de sesión
 def login():
-    st.markdown(f"""
+    # Estilo para el cuadro de inicio de sesión
+    login_style = """
         <style>
-        .header-container {{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 2rem;
-        }}
-        .header-container img {{
-            max-height: 100px;
-            margin-right: 20px;
-        }}
-        .header-container h1 {{
-            font-size: 2.5rem;
-            margin: 0;
-        }}
+        .login-container {
+            background-color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .login-container input[type="text"], .login-container input[type="password"] {
+            background-color: #f5f5f5;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .login-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
         </style>
-        <div class="header-container">
-            <img src="data:image/png;base64,{encoded_logo}" alt="Logo UPCH">
-            <h1>Plataforma de Gestión de Cursos - UPCH</h1>
+    """
+    st.markdown(login_style, unsafe_allow_html=True)
+
+    st.markdown(f"""
+        <div class="login-container">
+            <h2 style="color: white;">Inicio de Sesión</h2>
+            <form id="login_form">
+                <label style="color: white;">Usuario:</label>
+                <input type="text" name="username" value="{st.session_state.username}">
+                <br>
+                <label style="color: white;">Contraseña:</label>
+                <input type="password" name="password" value="{st.session_state.password}">
+                <br>
+                <input type="submit" value="Iniciar Sesión">
+            </form>
         </div>
     """, unsafe_allow_html=True)
 
-    st.subheader("Inicio de Sesión")
+    if st.session_state.logged_in:
+        st.success("¡Inicio de sesión exitoso!")
+        st.balloons()
+        st.write("""
+            ## Bienvenido a la Plataforma de Gestión de Cursos de Ingeniería Informática - UPCH
+            En esta aplicación, podrás explorar los cursos de los 10 ciclos de la carrera de Ingeniería Informática en la Universidad Peruana Cayetano Heredia (UPCH). Descubre los cursos, sus prerrequisitos y detalles para planificar tu trayectoria académica de manera efectiva.
+        """)
 
-    with st.form(key="login_form"):
-        st.markdown('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-        username = st.text_input("Usuario:", value="",key="Username")
+# Mostrar la página de inicio de sesión si el usuario no ha iniciado sesión
+if not st.session_state.logged_in:
+    login()
+else:
+    # Crear una instancia de la aplicación múltiple
+    app = MultiApp()
+
+    # Agregar todas las aplicaciones
+    app.add_app("Modelar Salones", modelar_salones_app)
+    app.add_app("Modelar Ambientes", modelar_ambientes_app)
+    app.add_app("Modelar Cursos", modelar_cursos_app)
+    app.add_app("Requerimiento de Ambientes", requerimiento_ambientes_app)
+    app.add_app("Asignación de Alumnos", asignacion_alumnos_app)
+    app.add_app("Optimización de Horarios", optimizar_horarios_app)
+
+    # Crear una barra de navegación en la parte superior
+    selected_app = st.selectbox("Selecciona una sección", [app['title'] for app in app.apps])
+
+    # Ejecutar la aplicación seleccionada
+    for app in app.apps:
+        if app['title'] == selected_app:
+            app['function']()
+            break
