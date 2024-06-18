@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 from PIL import Image
 
 def app():
@@ -10,12 +9,28 @@ def app():
     User = "41650931"
     Password = "cayetano"
 
-    # Crear el diseño del formulario de inicio de sesión
+    # Crear el diseño del formulario de inicio de sesión con fondo negro
     st.image(university_logo, width=200)
     st.title("🎓 Plataforma de Gestión de Cursos - UPCH")
     st.subheader("Inicio de Sesión")
 
-    with st.form(key="login_form"):
+    # Estilo CSS para el formulario
+    login_form_style = """
+        <style>
+        .login-form {
+            background-color: black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .stTextInput, .stTextArea {
+            background-color: #f0f0f5;
+            color: black;
+        }
+        </style>
+    """
+    st.markdown(login_form_style, unsafe_allow_html=True)
+
+    with st.form(key="login_form", class_="login-form"):
         username = st.text_input("Usuario:", value="")
         password = st.text_input("Contraseña:", type="password", value="")
         submit = st.form_submit_button("Iniciar Sesión")
@@ -32,3 +47,6 @@ def app():
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
     else:
         st.warning("Por favor, inicie sesión para continuar.")
+
+if __name__ == "__main__":
+    app()
