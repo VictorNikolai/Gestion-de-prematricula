@@ -1,9 +1,8 @@
 import streamlit as st
-from PIL import Image
 
 def app():
     # URL de la imagen de fondo
-    background_url = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/universidad.jpg"
+    background_url = "https://cayetano.edu.pe/wp-content/uploads/2023/02/universidad-fachada-2.jpg"
 
     # Estilo CSS para el fondo de pantalla
     background_style = f"""
@@ -18,15 +17,6 @@ def app():
     """
     st.markdown(background_style, unsafe_allow_html=True)
 
-    # Cargar la imagen del logo de la universidad
-    university_logo = Image.open("Logo_upch.png")
-
-    # Credenciales de inicio de sesión
-    User = "41650931"
-    Password = "cayetano"
-
-    # Diseño del formulario de inicio de sesión
-    st.image(university_logo, width=200)
     st.title("🎓 Plataforma de Gestión de Cursos - UPCH")
     st.subheader("Inicio de Sesión")
 
@@ -36,6 +26,9 @@ def app():
         submit = st.form_submit_button("Iniciar Sesión")
 
     if submit:
+        User = "41650931"
+        Password = "cayetano"
+        
         if username == User and password == Password:
             st.success("¡Inicio de sesión exitoso!")
             st.balloons()
@@ -50,3 +43,4 @@ def app():
 
 if __name__ == "__main__":
     app()
+
