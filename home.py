@@ -7,19 +7,21 @@ def app():
 
     st.header("Selecciona una sección para comenzar:")
 
-    # Botones para cada funcionalidad
-    if st.button("Modelar Salones"):
-        st.query_params["page"] = "modelar_salones"
-    if st.button("Modelar Ambientes"):
-        st.query_params["page"] = "modelar_ambientes"
-    if st.button("Modelar Cursos"):
-        st.query_params["page"] = "modelar_cursos"
-    if st.button("Requerimiento de Ambientes"):
-        st.query_params["page"] = "requerimiento_ambientes"
-    if st.button("Asignación de Alumnos"):
-        st.query_params["page"] = "asignacion_alumnos"
-    if st.button("Optimización de Horarios"):
-        st.query_params["page"] = "optimizar_horarios"
+    # Botones para cada sección con texto descriptivo
+    if st.button("Sobre Cayetano"):
+        st.query_params["page"] = "sobre_cayetano"
+        st.write("Información sobre la historia y misión de la Universidad.")
+    if st.button("Admisión"):
+        st.query_params["page"] = "admision"
+        st.write("Requisitos y procedimientos para el proceso de admisión.")
+    if st.button("Teléfonos de Docentes"):
+        st.query_params["page"] = "telefonos_docentes"
+        st.write("Lista de números de teléfono para contactar a los docentes.")
+    if st.button("Teléfonos de Ayuda"):
+        st.query_params["page"] = "telefonos_ayuda"
+        st.write("Números de contacto para recibir ayuda y soporte técnico.")
+    if st.button("Teléfonos de Administración"):
+        st.query_params["page"] = "telefonos_administracion"
+        st.write("Contactos principales del departamento de administración.")
 
     st.write("¡Explora y disfruta de la plataforma!")
-
