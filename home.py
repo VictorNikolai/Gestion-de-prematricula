@@ -1,34 +1,21 @@
+# home.py
 import streamlit as st
-import pandas as pd
 
 def app():
-    st.markdown(
-        """
-        <style>
-        .centered-title {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 20px; /* Espacio debajo del título */
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-    st.markdown("<h1 class='centered-title'>Bienvenido a la Página de Inicio</h1>", unsafe_allow_html=True)
-
+    st.title("Bienvenido a la Página de Inicio")
     st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
 
     st.header("Selecciona una sección para comenzar:")
 
+    # Barra lateral con las opciones
     selected_page = st.sidebar.selectbox(
         "Selecciona una sección",
         ["Home", "Modelar Salones", "Modelar Ambientes", "Modelar Cursos",
-         "Requerimiento de Ambientes", "Asignación de Alumnos", "Optimización de Horarios"]
+         "Requerimiento de Ambientes", "Asignación de Alumnos", "Optimización de Horarios"],
+        key="sidebar_selectbox"
     )
 
+    # Mostrar contenido según la opción seleccionada en la barra lateral
     if selected_page == "Home":
         show_home_content()
     elif selected_page == "Modelar Salones":
@@ -73,3 +60,4 @@ def show_asignacion_alumnos():
 
 def show_optimizacion_horarios():
     st.write("Contenido para optimización de horarios")
+
