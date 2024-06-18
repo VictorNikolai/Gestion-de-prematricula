@@ -74,3 +74,4 @@ def set_background():
         </style>
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
+
