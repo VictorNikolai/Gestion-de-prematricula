@@ -10,34 +10,25 @@ def login(encoded_logo, User, Password):
     # Establecer el fondo de pantalla
     set_background()
 
-    # Mostrar logo y título de la aplicación centrados
+    # Centrar el logo y el título de la aplicación con color de texto negro
     st.markdown(
         """
         <style>
-        .logo-container {
+        .center {
             display: flex;
             justify-content: center;
-        }
-        .title-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .subheader-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            color: black; /* Cambia el color del texto a negro */
         }
         </style>
-        """
-        , unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
-    st.markdown("<div class='logo-container'>"
-                "<img src='data:image/png;base64,{}' class='img-fluid' width='200'>"
-                "</div>".format(encoded_logo), unsafe_allow_html=True)
-
-    st.markdown("<div class='title-container'><h1>🎓 Plataforma de Gestión de Cursos - UPCH</h1></div>", unsafe_allow_html=True)
-    st.markdown("<div class='subheader-container'><h3>Inicio de Sesión</h3></div>", unsafe_allow_html=True)
+    with st.container():
+        st.image(university_logo, width=200)
+        st.title("🎓 Plataforma de Gestión de Cursos - UPCH")
+        st.subheader("Inicio de Sesión")
 
     # Formulario de inicio de sesión
     with st.form(key="login_form"):
@@ -65,11 +56,8 @@ def set_background():
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Ajusta según tus necesidades */
         }}
         </style>
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
+
