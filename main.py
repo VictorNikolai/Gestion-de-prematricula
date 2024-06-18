@@ -1,6 +1,7 @@
+# main.py
 import streamlit as st
-from login import login, set_background
 from multiapp import MultiApp
+from login import login, set_background
 from modelar_salones import app as modelar_salones_app
 from modelar_ambientes import app as modelar_ambientes_app
 from modelar_cursos import app as modelar_cursos_app
@@ -10,16 +11,12 @@ from optimizar_horarios import app as optimizar_horarios_app
 import os
 import base64
 
-# Configurar el diseño de la página sin icono
 st.set_page_config(layout="wide", initial_sidebar_state='collapsed', page_title="Gestión de Cursos UPCH")
 
-# Obtener la ruta del directorio actual
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Ruta al logo
 logo_path = os.path.join(current_dir, "logo_upch.png")
 
-# Cargar el logo y convertir a base64
 with open(logo_path, "rb") as image_file:
     encoded_logo = base64.b64encode(image_file.read()).decode()
 
@@ -31,11 +28,13 @@ Password = "cayetano"
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
-# Mostrar la página de inicio de sesión
-login(encoded_logo, User, Password)
+# Función para establecer el fondo de pantalla globalmente
+set_background()
 
-# Si el usuario ha iniciado sesión, mostrar la aplicación múltiple
-if st.session_state.logged_in:
+# Mostrar la página de inicio de sesión si el usuario no ha iniciado sesión
+if not st.session_state.logged_in:
+    login(encoded_logo, User, Password)
+else:
     # Crear una instancia de la aplicación múltiple
     app = MultiApp()
 
