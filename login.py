@@ -49,16 +49,16 @@ def login(encoded_logo, User, Password):
     if submit:
         if username == User and password == Password:
             st.session_state.logged_in = True
-            st.success("¡Inicio de sesión exitoso!")
-            st.balloons()
-            # Set the query parameter to navigate to the home page
-            st.query_params["page"] = "home"
+            # Redirigir a la página home con los parámetros de consulta adecuados
+            st.experimental_set_query_params(page="home")
+            st.success("¡Inicio de sesión exitoso! Redirigiendo a la página de inicio...")
+            st.experimental_rerun()
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
 
 # Función para establecer el fondo de pantalla globalmente
 def set_background():
-    background_url = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/06d35da9e3a46b3e4c80297a13c319f0097ce5ac/cayetano.png"
+    background_url = "https://360.cayetano.edu.pe/wp-content/uploads/sites/25/2024/03/53135168333_7b780465e9_k.jpg"
     page_bg_img = f"""
         <style>
         .stApp {{
@@ -74,4 +74,3 @@ def set_background():
         </style>
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
-
