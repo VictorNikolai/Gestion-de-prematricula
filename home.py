@@ -1,32 +1,25 @@
+# home.py
 import streamlit as st
 
-def main():
-    st.title("Mi Aplicación con Streamlit")
+def app():
+    st.title("Bienvenido a la Página de Inicio")
+    st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
 
-    # Lee los parámetros de consulta
-    page = st.query_params.get("page", "home")
+    st.header("Selecciona una sección para comenzar:")
 
-    if page == "home":
-        st.header("Bienvenido a la Página de Inicio")
-        st.write("Esta es la página principal de la aplicación.")
+    # Botones para cada funcionalidad
+    if st.button("Modelar Salones"):
+        st.query_params["page"] = "modelar_salones"
+    if st.button("Modelar Ambientes"):
+        st.query_params["page"] = "modelar_ambientes"
+    if st.button("Modelar Cursos"):
+        st.query_params["page"] = "modelar_cursos"
+    if st.button("Requerimiento de Ambientes"):
+        st.query_params["page"] = "requerimiento_ambientes"
+    if st.button("Asignación de Alumnos"):
+        st.query_params["page"] = "asignacion_alumnos"
+    if st.button("Optimización de Horarios"):
+        st.query_params["page"] = "optimizar_horarios"
 
-        if st.button("Ir a la página de detalles"):
-            st.query_params["page"] = "details"
-
-    elif page == "details":
-        st.header("Detalles de la Página")
-        st.write("Estos son los detalles de la página seleccionada.")
-
-        if st.button("Volver a la página de inicio"):
-            st.query_params["page"] = "home"
-
-    # Enlaces de navegación
-    st.write("Navega usando los enlaces:")
-    if st.button("Ir a la página de inicio"):
-        st.query_params["page"] = "home"
-    if st.button("Ir a la página de detalles"):
-        st.query_params["page"] = "details"
-
-if __name__ == "__main__":
-    main()
+    st.write("¡Explora y disfruta de la plataforma!")
 
