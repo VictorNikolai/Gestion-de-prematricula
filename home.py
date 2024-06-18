@@ -2,8 +2,26 @@
 import streamlit as st
 
 def app():
-    st.title("Bienvenido a la Página de Inicio")
-    st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
+    # Estilo CSS para centrar el contenido
+    st.markdown(
+        """
+        <style>
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # Contenedor centrado para el título y el texto introductorio
+    with st.markdown("<div class='centered'>", unsafe_allow_html=True):
+        st.title("Bienvenido a la Página de Inicio")
+        st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
 
     st.header("Selecciona una sección para comenzar:")
 
@@ -25,4 +43,3 @@ def app():
         st.write("Contactos principales del departamento de administración.")
 
     st.write("¡Explora y disfruta de la plataforma!")
-
