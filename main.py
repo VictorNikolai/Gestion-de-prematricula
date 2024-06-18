@@ -1,16 +1,25 @@
 import streamlit as st
+from PIL import Image
 from multiapp import MultiApp
-from modelar_salones import app as modelar_salones_app
-from modelar_ambientes import app as modelar_ambientes_app
-from modelar_cursos import app as modelar_cursos_app
-from requerimiento_ambientes import app as requerimiento_ambientes_app
-from asignacion_alumnos import app as asignacion_alumnos_app
-from optimizar_horarios import app as optimizar_horarios_app
 import os
 import base64
-from PIL import Image
 
-# Configurar el diseño de la página sin icono
+# Función para establecer el fondo de pantalla globalmente
+def set_background():
+    background_url = "https://360.cayetano.edu.pe/wp-content/uploads/sites/25/2024/03/53135168333_7b780465e9_k.jpg"
+    page_bg_img = f"""
+        <style>
+        .stApp {{
+            background-image: url("{background_url}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+        </style>
+    """
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
+# Configurar el diseño de la página Streamlit
 st.set_page_config(layout="wide", initial_sidebar_state='collapsed', page_title="Gestión de Cursos UPCH")
 
 # Obtener la ruta del directorio actual
@@ -32,28 +41,8 @@ if "username" not in st.session_state:
     st.session_state.username = ""
 if "password" not in st.session_state:
     st.session_state.password = ""
-
-# Variable de estado para verificar si el usuario ha iniciado sesión
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
-
-# Función para establecer el fondo de pantalla globalmente
-def set_background():
-    background_url = "https://360.cayetano.edu.pe/wp-content/uploads/sites/25/2024/03/53135168333_7b780465e9_k.jpg"
-    page_bg_img = f"""
-        <style>
-        .stApp {{
-            background-image: url("{background_url}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-        </style>
-    """
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-
-# Llamar a la función para establecer el fondo de pantalla
-set_background()
 
 # Función de inicio de sesión
 def login():
@@ -117,20 +106,27 @@ else:
     # Crear una instancia de la aplicación múltiple
     app = MultiApp()
 
-    # Agregar todas las aplicaciones
-    app.add_app("Modelar Salones", modelar_salones_app)
-    app.add_app("Modelar Ambientes", modelar_ambientes_app)
-    app.add_app("Modelar Cursos", modelar_cursos_app)
-    app.add_app("Requerimiento de Ambientes", requerimiento_ambientes_app)
-    app.add_app("Asignación de Alumnos", asignacion_alumnos_app)
-    app.add_app("Optimización de Horarios", optimizar_horarios_app)
+    # Agregar todas las aplicaciones (reemplaza con tus aplicaciones)
+    # app.add_app("Modelar Salones", modelar_salones_app)
+    # app.add_app("Modelar Ambientes", modelar_ambientes_app)
+    # app.add_app("Modelar Cursos", modelar_cursos_app)
+    # app.add_app("Requerimiento de Ambientes", requerimiento_ambientes_app)
+    # app.add_app("Asignación de Alumnos", asignacion_alumnos_app)
+    # app.add_app("Optimización de Horarios", optimizar_horarios_app)
 
-    # Crear una barra de navegación en la parte superior
-    selected_app = st.selectbox("Selecciona una sección", [app['title'] for app in app.apps])
+    # Crear una barra de navegación en la parte superior (simulado con un selectbox)
+    selected_app = st.selectbox("Selecciona una sección", ["Modelar Salones", "Modelar Ambientes", "Modelar Cursos", "Requerimiento de Ambientes", "Asignación de Alumnos", "Optimización de Horarios"])
 
-    # Ejecutar la aplicación seleccionada
-    for app in app.apps:
-        if app['title'] == selected_app:
-            app['function']()
-            break
-
+    # Ejecutar la aplicación seleccionada (reemplaza con el llamado a la función correcta)
+    if selected_app == "Modelar Salones":
+        modelar_salones_app()
+    elif selected_app == "Modelar Ambientes":
+        modelar_ambientes_app()
+    elif selected_app == "Modelar Cursos":
+        modelar_cursos_app()
+    elif selected_app == "Requerimiento de Ambientes":
+        requerimiento_ambientes_app()
+    elif selected_app == "Asignación de Alumnos":
+        asignacion_alumnos_app()
+    elif selected_app == "Optimización de Horarios":
+        optimizar_horarios_app()
