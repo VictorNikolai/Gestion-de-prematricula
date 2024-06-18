@@ -19,8 +19,8 @@ logo_path = os.path.join(current_dir, "logo_upch.png")
 with open(logo_path, "rb") as image_file:
     encoded_logo = base64.b64encode(image_file.read()).decode()
 
-User = "41650931"
-Password = "cayetano"
+User = "0000" #lo cambie porque me dio weba ingresar los datos xd
+Password = "0000"
 
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
