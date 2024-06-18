@@ -10,7 +10,7 @@ def login(encoded_logo, User, Password):
     # Establecer el fondo de pantalla
     set_background()
 
-    # Mostrar logo y título de la aplicación centrados con color de texto negro
+    # Mostrar logo y título de la aplicación centrados
     st.markdown(
         """
         <style>
@@ -22,13 +22,11 @@ def login(encoded_logo, User, Password):
             display: flex;
             justify-content: center;
             margin-top: 20px;
-            color: black; /* Cambia el color del título a negro */
         }
         .subheader-container {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
-            color: black; /* Cambia el color del subencabezado a negro */
         }
         </style>
         """
@@ -75,4 +73,3 @@ def set_background():
         </style>
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
-
