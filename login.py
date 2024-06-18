@@ -2,14 +2,14 @@ import streamlit as st
 from PIL import Image
 
 def app():
-    university_background = "https://github.com/VictorNikolai/Gestion-de-prematricula/blob/main/universidad.jpg?raw=true"
+    university_background = "https://github.com/VictorNikolai/Gestion-de-prematricula/raw/main/universidad.jpg"
 
     User = "41650931"
     Password = "cayetano"
 
     background_style = f"""
         <style>
-        .stApp {{
+        body {{
             background-image: url('{university_background}');
             background-size: cover;
             background-repeat: no-repeat;
@@ -42,3 +42,4 @@ def app():
 
 if __name__ == "__main__":
     app()
+
