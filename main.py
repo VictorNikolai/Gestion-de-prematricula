@@ -1,7 +1,6 @@
-# main.py
 import streamlit as st
-from multiapp import MultiApp
 from login import login, set_background
+from multiapp import MultiApp
 from modelar_salones import app as modelar_salones_app
 from modelar_ambientes import app as modelar_ambientes_app
 from modelar_cursos import app as modelar_cursos_app
@@ -32,13 +31,11 @@ Password = "cayetano"
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
-# Función para establecer el fondo de pantalla globalmente
-set_background()
+# Mostrar la página de inicio de sesión
+login(encoded_logo, User, Password)
 
-# Mostrar la página de inicio de sesión si el usuario no ha iniciado sesión
-if not st.session_state.logged_in:
-    login(encoded_logo, User, Password)
-else:
+# Si el usuario ha iniciado sesión, mostrar la aplicación múltiple
+if st.session_state.logged_in:
     # Crear una instancia de la aplicación múltiple
     app = MultiApp()
 
@@ -58,4 +55,3 @@ else:
         if app['title'] == selected_app:
             app['function']()
             break
-
