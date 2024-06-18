@@ -12,18 +12,23 @@ def app():
     # Estilo CSS para el formulario de inicio de sesión
     login_form_style = """
         <style>
-        .login-form {
+        body {
             background-color: black;
+            color: white;
+        }
+        .login-form {
+            max-width: 400px;
+            background-color: #333333;
             padding: 20px;
             border-radius: 10px;
-            color: white;
+            margin-top: 50px;
         }
         .login-form input[type="text"], 
         .login-form input[type="password"] {
-            background-color: #333333;
+            background-color: #444444;
             color: white;
             border: none;
-            padding: 8px;
+            padding: 10px;
             margin-bottom: 10px;
             border-radius: 5px;
             width: 100%;
@@ -31,10 +36,11 @@ def app():
         .login-form input[type="submit"] {
             background-color: #1f77b4;
             color: white;
-            padding: 10px 15px;
+            padding: 12px 15px;
             border: none;
             cursor: pointer;
             border-radius: 5px;
+            width: 100%;
         }
         </style>
     """
