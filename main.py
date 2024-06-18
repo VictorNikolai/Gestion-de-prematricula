@@ -1,4 +1,3 @@
-# main.py
 import streamlit as st
 from multiapp import MultiApp
 from login import login, set_background
@@ -15,7 +14,6 @@ import base64
 st.set_page_config(layout="wide", initial_sidebar_state='collapsed', page_title="Gestión de Cursos UPCH")
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-
 logo_path = os.path.join(current_dir, "logo_upch.png")
 
 with open(logo_path, "rb") as image_file:
@@ -47,5 +45,7 @@ else:
     for app_page in app.apps:
         if app_page['title'] == selected_app:
             app_page['function']()
-            break
 
+# Manejo de redireccionamiento usando query_params
+if st.query_params.get("page") == "home" and st.session_state.logged_in:
+    home_app()  # Mostrar la página Home si se ha iniciado sesión y se ha establecido el parámetro "page" a "home"
