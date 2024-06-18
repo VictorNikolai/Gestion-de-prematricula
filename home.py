@@ -61,3 +61,4 @@ def show_asignacion_alumnos():
 def show_optimizacion_horarios():
     st.write("Contenido para optimización de horarios")
 
+
