@@ -3,7 +3,7 @@ from PIL import Image
 import base64
 
 def login(encoded_logo, User, Password):
-    university_logo = Image.open("Logo_upch.png")
+    university_logo = Image.open("logo_upch.png")
 
     set_background()
 
