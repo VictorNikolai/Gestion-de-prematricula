@@ -1,6 +1,3 @@
-
-
-
 import streamlit as st
 from multiapp import MultiApp
 from modelar_salones import app as modelar_salones_app
@@ -11,20 +8,6 @@ from asignacion_alumnos import app as asignacion_alumnos_app
 from optimizar_horarios import app as optimizar_horarios_app
 import os
 import base64
-
-# Configurar el diseño de la página sin icono y con el fondo de pantalla
-background_url = "https://cayetano.edu.pe/wp-content/uploads/2023/02/universidad-fachada-2.jpg"
-page_bg_img = f"""
-    <style>
-    .stApp {{
-        background-image: url("{background_url}");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }}
-    </style>
-"""
-st.markdown(page_bg_img, unsafe_allow_html=True)
 
 # Configurar el diseño de la página sin icono
 st.set_page_config(layout="wide", initial_sidebar_state='collapsed', page_title="Gestión de Cursos UPCH")
@@ -49,6 +32,19 @@ if "logged_in" not in st.session_state:
 
 # Función de inicio de sesión
 def login():
+    background_url = "https://cayetano.edu.pe/wp-content/uploads/2023/02/universidad-fachada-2.jpg"
+    page_bg_img = f"""
+        <style>
+        .stApp {{
+            background-image: url("{background_url}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+        </style>
+    """
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
     st.markdown(f"""
         <style>
         .header-container {{
