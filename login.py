@@ -7,7 +7,8 @@ def app():
     User = "41650931"
     Password = "cayetano"
 
-    background_style = f"""
+    st.markdown(
+        f"""
         <style>
         .stApp {{
             background-image: url('{university_background}');
@@ -16,8 +17,9 @@ def app():
             background-attachment: fixed;
         }}
         </style>
-    """
-    st.markdown(background_style, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True
+    )
 
     st.title("🎓 Plataforma de Gestión de Cursos - UPCH")
     st.subheader("Inicio de Sesión")
