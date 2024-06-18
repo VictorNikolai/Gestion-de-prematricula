@@ -7,10 +7,10 @@ def login(encoded_logo, User, Password):
     # Cargar la imagen de la insignia de la universidad
     university_logo = Image.open("logo_upch.png")
 
-    # Establecer el fondo de pantalla con efecto de desenfoque
+    # Establecer el fondo de pantalla
     set_background()
 
-    # Mostrar logo y título de la aplicación centrados con color de texto negro
+    # Mostrar logo y título de la aplicación centrados
     st.markdown(
         """
         <style>
@@ -22,32 +22,15 @@ def login(encoded_logo, User, Password):
             display: flex;
             justify-content: center;
             margin-top: 20px;
-            color: black; /* Cambia el color del título a negro */
         }
         .subheader-container {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
-            color: black; /* Cambia el color del subencabezado a negro */
-        }
-        .blur-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("{background_url}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            filter: blur(8px); /* Aplica el efecto de desenfoque */
-            z-index: -1; /* Coloca detrás de otros elementos */
         }
         </style>
         """
         , unsafe_allow_html=True)
-
-    st.markdown("<div class='blur-background'></div>", unsafe_allow_html=True)  # Fondo desenfocado
 
     st.markdown("<div class='logo-container'>"
                 "<img src='data:image/png;base64,{}' class='img-fluid' width='200'>"
@@ -74,8 +57,8 @@ def login(encoded_logo, User, Password):
 
 # Función para establecer el fondo de pantalla globalmente
 def set_background():
-    background_url = "https://360.cayetano.edu.pe/wp-content/uploads/sites/25/2024/03/53135168333_7b780465e9_k.jpg"
-    st.markdown(f"""
+    background_url = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/06d35da9e3a46b3e4c80297a13c319f0097ce5ac/cayetano.png"
+    page_bg_img = f"""
         <style>
         .stApp {{
             background-image: url("{background_url}");
@@ -86,7 +69,7 @@ def set_background():
             justify-content: center;
             align-items: center;
             height: 100vh; /* Ajusta según tus necesidades */
-            position: relative;
         }}
         </style>
-    """, unsafe_allow_html=True)
+    """
+    st.markdown(page_bg_img, unsafe_allow_html=True)
