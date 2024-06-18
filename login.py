@@ -1,34 +1,34 @@
 import streamlit as st
 from PIL import Image
-import urllib.request
+import base64
+
+def get_base64(png_file):
+    with open(png_file, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+def set_background(png_file):
+    bin_str = get_base64(png_file)
+    page_bg_img = '''
+    <style>
+    .stApp {
+        background-image: url("data:image/png;base64,%s");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    </style>
+    ''' % bin_str
+    st.markdown(page_bg_img, unsafe_allow_html=True)
 
 def app():
-    # URL de la imagen de fondo en GitHub
-    university_background_url = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/universidad.jpg"
+    # Llamar a set_background con la imagen deseada
+    set_background("universidad.png")  # Asegúrate de que "universidad.png" esté en el mismo directorio
 
-    # Cargar la imagen de fondo desde la URL
-    try:
-        university_background = Image.open(urllib.request.urlopen(university_background_url))
-    except Exception as e:
-        st.error(f"No se pudo cargar la imagen de fondo: {e}")
-        return
-
-    # Establecer el estilo CSS para el fondo de pantalla
-    background_style = f"""
-        <style>
-        .stApp {{
-            background-image: url('{university_background_url}');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-        </style>
-    """
-    st.markdown(background_style, unsafe_allow_html=True)
-
-    # Contenido de la aplicación de inicio de sesión
     st.title("🎓 Plataforma de Gestión de Cursos - UPCH")
     st.subheader("Inicio de Sesión")
+
+    User = "41650931"
+    Password = "cayetano"
 
     with st.form(key="login_form"):
         username = st.text_input("Usuario:", value="")
@@ -36,8 +36,7 @@ def app():
         submit = st.form_submit_button("Iniciar Sesión")
 
     if submit:
-        # Validación de usuario y contraseña (simulada)
-        if username == "41650931" and password == "cayetano":
+        if username == User and password == Password:
             st.success("¡Inicio de sesión exitoso!")
             st.balloons()
             st.write("""
