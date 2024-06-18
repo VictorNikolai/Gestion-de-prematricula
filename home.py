@@ -1,4 +1,3 @@
-# home.py
 import streamlit as st
 
 def app():
@@ -7,7 +6,6 @@ def app():
 
     st.header("Selecciona una sección para comenzar:")
 
-    # Centrar el contenido
     st.markdown(
         """
         <style>
@@ -23,7 +21,6 @@ def app():
         unsafe_allow_html=True
     )
 
-    # Contenedor centrado para los botones y descripciones
     with st.markdown("<div class='centered'>", unsafe_allow_html=True):
         if st.button("Sobre Cayetano"):
             st.query_params["page"] = "sobre_cayetano"
