@@ -30,8 +30,8 @@ Password = "cayetano"
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
-# Función de inicio de sesión
-def login():
+# Función para establecer el fondo de pantalla globalmente
+def set_background():
     background_url = "https://360.cayetano.edu.pe/wp-content/uploads/sites/25/2024/03/53135168333_7b780465e9_k.jpg"
     page_bg_img = f"""
         <style>
@@ -45,6 +45,11 @@ def login():
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
+# Llamar a la función para establecer el fondo de pantalla
+set_background()
+
+# Función de inicio de sesión
+def login():
     st.markdown(f"""
         <style>
         .header-container {{
