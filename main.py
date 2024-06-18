@@ -42,13 +42,10 @@ else:
     app.add_app("Asignación de Alumnos", asignacion_alumnos_app)
     app.add_app("Optimización de Horarios", optimizar_horarios_app)
 
-    # Obtener el valor de la página desde los parámetros de consulta
-    page = st.query_params.get("page", "home")
-
-    # Seleccionar la página para mostrar
-    selected_app = page
+    selected_app = st.selectbox("Selecciona una sección", [app['title'] for app in app.apps])
 
     for app_page in app.apps:
         if app_page['title'] == selected_app:
             app_page['function']()
             break
+
