@@ -1,30 +1,27 @@
 import streamlit as st
 from PIL import Image
-import base64
-
-def set_background(png_file):
-    with open(png_file, "rb") as f:
-        bin_str = base64.b64encode(f.read()).decode()
-    page_bg_img = f'''
-    <style>
-    .stApp {{
-        background-image: url("data:image/png;base64,{bin_str}");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }}
-    </style>
-    '''
-    st.markdown(page_bg_img, unsafe_allow_html=True)
 
 def app():
-    # Configurar el fondo de pantalla con la imagen universidad.jpg
-    set_background("universidad.jpg")
+    # URL de la imagen de fondo
+    background_url = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/universidad.jpg"
 
-    # Cargar la imagen del logo de la universidad (ejemplo)
+    # Estilo CSS para el fondo de pantalla
+    background_style = f"""
+        <style>
+        .stApp {{
+            background-image: url('{background_url}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+        </style>
+    """
+    st.markdown(background_style, unsafe_allow_html=True)
+
+    # Cargar la imagen del logo de la universidad
     university_logo = Image.open("Logo_upch.png")
 
-    # Credenciales de inicio de sesión (ejemplo)
+    # Credenciales de inicio de sesión
     User = "41650931"
     Password = "cayetano"
 
