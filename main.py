@@ -1,5 +1,7 @@
+# main.py
 import streamlit as st
 from multiapp import MultiApp
+from login import login, set_background
 from modelar_salones import app as modelar_salones_app
 from modelar_ambientes import app as modelar_ambientes_app
 from modelar_cursos import app as modelar_cursos_app
@@ -31,67 +33,11 @@ if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
 # Función para establecer el fondo de pantalla globalmente
-def set_background():
-    background_url = "https://360.cayetano.edu.pe/wp-content/uploads/sites/25/2024/03/53135168333_7b780465e9_k.jpg"
-    page_bg_img = f"""
-        <style>
-        .stApp {{
-            background-image: url("{background_url}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-        </style>
-    """
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-
-# Llamar a la función para establecer el fondo de pantalla
 set_background()
-
-# Función de inicio de sesión
-def login():
-    st.markdown(f"""
-        <style>
-        .header-container {{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 2rem;
-        }}
-        .header-container img {{
-            max-height: 100px;
-            margin-right: 20px;
-        }}
-        .header-container h1 {{
-            font-size: 2.5rem;
-            margin: 0;
-        }}
-        </style>
-        <div class="header-container">
-            <img src="data:image/png;base64,{encoded_logo}" alt="Logo UPCH">
-            <h1>Plataforma de Gestión de Cursos - UPCH</h1>
-        </div>
-    """, unsafe_allow_html=True)
-
-    st.subheader("Inicio de Sesión")
-
-    with st.form(key="login_form"):
-        username = st.text_input("Usuario:", value="")
-        password = st.text_input("Contraseña:", type="password", value="")
-        submit = st.form_submit_button("Iniciar Sesión")
-
-    if submit:
-        if username == User and password == Password:
-            st.session_state.logged_in = True
-            st.success("¡Inicio de sesión exitoso!")
-            st.balloons()
-            st.experimental_rerun()
-        else:
-            st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
 
 # Mostrar la página de inicio de sesión si el usuario no ha iniciado sesión
 if not st.session_state.logged_in:
-    login()
+    login(encoded_logo, User, Password)
 else:
     # Crear una instancia de la aplicación múltiple
     app = MultiApp()
@@ -112,3 +58,4 @@ else:
         if app['title'] == selected_app:
             app['function']()
             break
+
