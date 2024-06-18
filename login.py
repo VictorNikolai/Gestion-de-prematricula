@@ -52,13 +52,11 @@ def login(encoded_logo, User, Password):
             st.success("¡Inicio de sesión exitoso!")
             st.balloons()
             # Redirigir a la página home.py
-            redirect_to_home()
+            st.experimental_set_query_params(page="home")  # Deprecated
+            # New method using st.query_params
+            st.query_params(page="home")
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
-
-def redirect_to_home():
-    # Cambiar la URL para apuntar a home.py
-    st.experimental_set_query_params(page="home")
 
 # Función para establecer el fondo de pantalla globalmente
 def set_background():
@@ -78,3 +76,4 @@ def set_background():
         </style>
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
+
