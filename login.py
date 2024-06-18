@@ -7,7 +7,7 @@ def login(encoded_logo, User, Password):
     # Cargar la imagen de la insignia de la universidad
     university_logo = Image.open("logo_upch.png")
 
-    # Establecer el fondo de pantalla
+    # Establecer el fondo de pantalla con efecto de desenfoque
     set_background()
 
     # Mostrar logo y título de la aplicación centrados
@@ -28,9 +28,24 @@ def login(encoded_logo, User, Password):
             justify-content: center;
             margin-bottom: 20px;
         }
+        .blur-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("{background_url}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            filter: blur(8px); /* Aplica el efecto de desenfoque */
+            z-index: -1; /* Coloca detrás de otros elementos */
+        }
         </style>
         """
         , unsafe_allow_html=True)
+
+    st.markdown("<div class='blur-background'></div>", unsafe_allow_html=True)  # Fondo desenfocado
 
     st.markdown("<div class='logo-container'>"
                 "<img src='data:image/png;base64,{}' class='img-fluid' width='200'>"
@@ -58,7 +73,7 @@ def login(encoded_logo, User, Password):
 # Función para establecer el fondo de pantalla globalmente
 def set_background():
     background_url = "https://360.cayetano.edu.pe/wp-content/uploads/sites/25/2024/03/53135168333_7b780465e9_k.jpg"
-    page_bg_img = f"""
+    st.markdown(f"""
         <style>
         .stApp {{
             background-image: url("{background_url}");
@@ -69,7 +84,8 @@ def set_background():
             justify-content: center;
             align-items: center;
             height: 100vh; /* Ajusta según tus necesidades */
+            position: relative;
         }}
         </style>
-    """
-    st.markdown(page_bg_img, unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
