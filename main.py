@@ -6,41 +6,22 @@ from modelar_cursos import app as modelar_cursos_app
 from requerimiento_ambientes import app as requerimiento_ambientes_app
 from asignacion_alumnos import app as asignacion_alumnos_app
 from optimizar_horarios import app as optimizar_horarios_app
-from PIL import Image
-
-# Definir la imagen de fondo
-university_background = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/universidad.jpg"
-
-# Estilo de fondo
-background_style = f"""
-    <style>
-    body {{
-        background-image: url('{university_background}');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }}
-    .stApp {{
-        background-color: rgba(255, 255, 255, 0.9);  /* Fondo semi-transparente para mejor legibilidad */
-        padding: 1rem;
-        min-height: 100vh;  /* Ajustar al tamaño de la ventana */
-    }}
-    </style>
-"""
-st.markdown(background_style, unsafe_allow_html=True)
+import pandas as pd
+import os
+import base64
 
 # Configurar el diseño de la página sin icono
 st.set_page_config(layout="wide", initial_sidebar_state='collapsed', page_title="Gestión de Cursos UPCH", page_icon=":mortar_board:")
 
-# Ruta al logo (ajusta según tu estructura de directorios)
-logo_path = "logo_upch.png"
+# Obtener la ruta del directorio actual
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Ruta al logo
+logo_path = os.path.join(current_dir, "logo_upch.png")
 
 # Cargar el logo y convertir a base64
-try:
-    with open(logo_path, "rb") as image_file:
-        encoded_logo = base64.b64encode(image_file.read()).decode()
-except FileNotFoundError:
-    st.warning("No se encontró el archivo del logo.")
+with open(logo_path, "rb") as image_file:
+    encoded_logo = base64.b64encode(image_file.read()).decode()
 
 # Credenciales de inicio de sesión
 User = "41650931"
@@ -53,8 +34,24 @@ if "logged_in" not in st.session_state:
 # Función de inicio de sesión
 def login():
     st.markdown(f"""
-        <div style='text-align: center;'>
-            <img src="data:image/png;base64,{encoded_logo}" alt="Logo UPCH" width="100">
+        <style>
+        .header-container {{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }}
+        .header-container img {{
+            max-height: 100px;
+            margin-right: 20px;
+        }}
+        .header-container h1 {{
+            font-size: 2.5rem;
+            margin: 0;
+        }}
+        </style>
+        <div class="header-container">
+            <img src="data:image/png;base64,{encoded_logo}" alt="Logo UPCH">
             <h1>Plataforma de Gestión de Cursos - UPCH</h1>
         </div>
     """, unsafe_allow_html=True)
@@ -98,3 +95,4 @@ else:
         if app['title'] == selected_app:
             app['function']()
             break
+
