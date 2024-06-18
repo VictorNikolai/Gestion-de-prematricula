@@ -1,8 +1,6 @@
-# home.py
 import streamlit as st
 
 def app():
-    # Estilo CSS para centrar el título
     st.markdown(
         """
         <style>
@@ -17,15 +15,12 @@ def app():
         unsafe_allow_html=True
     )
 
-    # Título centrado
     st.markdown("<h1 class='centered-title'>Bienvenido a la Página de Inicio</h1>", unsafe_allow_html=True)
 
-    # Texto introductorio
     st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
 
     st.header("Selecciona una sección para comenzar:")
 
-    # Botones para cada sección con texto descriptivo
     if st.button("Sobre Cayetano"):
         st.query_params["page"] = "sobre_cayetano"
         st.write("Información sobre la historia y misión de la Universidad.")
