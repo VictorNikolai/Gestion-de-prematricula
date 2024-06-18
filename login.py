@@ -18,13 +18,15 @@ def app():
             border-radius: 10px;
             color: white;
         }
-        .login-form input {
+        .login-form input[type="text"], 
+        .login-form input[type="password"] {
             background-color: #333333;
             color: white;
             border: none;
             padding: 8px;
             margin-bottom: 10px;
             border-radius: 5px;
+            width: 100%;
         }
         .login-form input[type="submit"] {
             background-color: #1f77b4;
