@@ -9,32 +9,49 @@ def app():
     User = "41650931"
     Password = "cayetano"
 
-    # Crear el diseño del formulario de inicio de sesión con fondo negro
-    st.image(university_logo, width=200)
-    st.title("🎓 Plataforma de Gestión de Cursos - UPCH")
-    st.subheader("Inicio de Sesión")
-
-    # Estilo CSS para el formulario
+    # Estilo CSS para el formulario de inicio de sesión
     login_form_style = """
         <style>
         .login-form {
             background-color: black;
             padding: 20px;
             border-radius: 10px;
+            color: white;
         }
-        .stTextInput, .stTextArea {
-            background-color: #f0f0f5;
-            color: black;
+        .login-form input {
+            background-color: #333333;
+            color: white;
+            border: none;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .login-form input[type="submit"] {
+            background-color: #1f77b4;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
         }
         </style>
     """
+
+    # Aplicar estilo al formulario de inicio de sesión
     st.markdown(login_form_style, unsafe_allow_html=True)
 
+    # Mostrar logo y título de la aplicación
+    st.image(university_logo, width=200)
+    st.title("🎓 Plataforma de Gestión de Cursos - UPCH")
+    st.subheader("Inicio de Sesión")
+
+    # Formulario de inicio de sesión
     with st.form(key="login_form", class_="login-form"):
         username = st.text_input("Usuario:", value="")
         password = st.text_input("Contraseña:", type="password", value="")
         submit = st.form_submit_button("Iniciar Sesión")
 
+    # Procesamiento del formulario
     if submit:
         if username == User and password == Password:
             st.success("¡Inicio de sesión exitoso!")
@@ -45,8 +62,7 @@ def app():
             """)
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
-    else:
-        st.warning("Por favor, inicie sesión para continuar.")
 
 if __name__ == "__main__":
     app()
+
