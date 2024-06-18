@@ -51,10 +51,8 @@ def login(encoded_logo, User, Password):
             st.session_state.logged_in = True
             st.success("¡Inicio de sesión exitoso!")
             st.balloons()
-            # Redirigir a la página home.py
-            st.experimental_set_query_params(page="home")  # Deprecated
-            # New method using st.query_params
-            st.query_params(page="home")
+            # Redirigir a la página home.py con el parámetro de consulta
+            st.experimental_set_query_params(page="home")
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
 
