@@ -1,27 +1,66 @@
-# login.py
 import streamlit as st
 from PIL import Image
-import base64
 
 def login(encoded_logo, User, Password):
-    # Cargar la imagen de la insignia de la universidad
-    university_logo = Image.open("logo_upch.png")
+    st.markdown(f"""
+        <style>
+        .header-container {{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }}
+        .header-container img {{
+            max-height: 100px;
+            margin-right: 20px;
+        }}
+        .header-container h1 {{
+            font-size: 2.5rem;
+            margin: 0;
+        }}
+        .login-form {{
+            max-width: 400px;
+            background-color: #333333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }}
+        .login-form input[type="text"], 
+        .login-form input[type="password"] {{
+            background-color: #444444;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            width: 100%;
+        }}
+        .login-form input[type="submit"] {{
+            background-color: #1f77b4;
+            color: white;
+            padding: 12px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }}
+        </style>
+    """, unsafe_allow_html=True)
 
-    # Establecer el fondo de pantalla
-    set_background()
+    st.markdown(f"""
+        <div class="header-container">
+            <img src="data:image/png;base64,{encoded_logo}" alt="Logo UPCH">
+            <h1>Plataforma de Gestión de Cursos - UPCH</h1>
+        </div>
+    """, unsafe_allow_html=True)
 
-    # Mostrar logo y título de la aplicación
-    st.image(university_logo, width=200)
-    st.title("🎓 Plataforma de Gestión de Cursos - UPCH")
     st.subheader("Inicio de Sesión")
 
-    # Formulario de inicio de sesión
-    with st.form(key="login_form"):
+    with st.form(key="login_form", class_="login-form"):
         username = st.text_input("Usuario:", value="")
         password = st.text_input("Contraseña:", type="password", value="")
         submit = st.form_submit_button("Iniciar Sesión")
 
-    # Procesamiento del formulario
     if submit:
         if username == User and password == Password:
             st.session_state.logged_in = True
@@ -30,19 +69,3 @@ def login(encoded_logo, User, Password):
             st.experimental_rerun()
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
-
-# Función para establecer el fondo de pantalla globalmente
-def set_background():
-    background_url = "https://360.cayetano.edu.pe/wp-content/uploads/sites/25/2024/03/53135168333_7b780465e9_k.jpg"
-    page_bg_img = f"""
-        <style>
-        .stApp {{
-            background-image: url("{background_url}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-        </style>
-    """
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-
