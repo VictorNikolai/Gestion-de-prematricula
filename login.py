@@ -10,10 +10,10 @@ def login(encoded_logo, User, Password):
     # Establecer el fondo de pantalla
     set_background()
 
-    # Mostrar logo y título de la aplicación centrados
-    st.image(university_logo, width=200, caption='', use_column_width=True, align='center')
-    st.title("🎓 Plataforma de Gestión de Cursos - UPCH", align='center')
-    st.subheader("Inicio de Sesión", align='center')
+    # Mostrar logo y título de la aplicación
+    st.image(university_logo, width=200)
+    st.title("🎓 Plataforma de Gestión de Cursos - UPCH")
+    st.subheader("Inicio de Sesión")
 
     # Formulario de inicio de sesión
     with st.form(key="login_form"):
@@ -46,6 +46,10 @@ def set_background():
             align-items: center;
             height: 100vh; /* Ajusta según tus necesidades */
         }}
+        .centered {{
+            text-align: center;
+        }}
         </style>
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
+
