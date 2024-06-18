@@ -7,11 +7,9 @@ from requerimiento_ambientes import app as requerimiento_ambientes_app
 from asignacion_alumnos import app as asignacion_alumnos_app
 from optimizar_horarios import app as optimizar_horarios_app
 import pandas as pd
+from PIL import Image
 import os
 import base64
-
-# Configurar el diseño de la página sin icono
-st.set_page_config(layout="wide", initial_sidebar_state='collapsed', page_title="Gestión de Cursos UPCH", page_icon=":mortar_board:")
 
 # Obtener la ruta del directorio actual
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -22,6 +20,23 @@ logo_path = os.path.join(current_dir, "logo_upch.png")
 # Cargar el logo y convertir a base64
 with open(logo_path, "rb") as image_file:
     encoded_logo = base64.b64encode(image_file.read()).decode()
+
+# Cargar la imagen de fondo para toda la aplicación
+university_background = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/universidad.jpg"
+
+# Establecer configuración de página con fondo de pantalla
+st.set_page_config(
+    layout="wide",
+    initial_sidebar_state='collapsed',
+    page_title="Gestión de Cursos UPCH",
+    page_icon=":mortar_board:",
+    background_image=university_background,
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': "https://docs.streamlit.io/",
+    }
+)
 
 # Credenciales de inicio de sesión
 User = "41650931"
