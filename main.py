@@ -27,6 +27,12 @@ with open(logo_path, "rb") as image_file:
 User = "41650931"
 Password = "cayetano"
 
+# Inicialización de variables de sesión
+if "username" not in st.session_state:
+    st.session_state.username = ""
+if "password" not in st.session_state:
+    st.session_state.password = ""
+
 # Variable de estado para verificar si el usuario ha iniciado sesión
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
@@ -127,3 +133,4 @@ else:
         if app['title'] == selected_app:
             app['function']()
             break
+
