@@ -24,18 +24,23 @@ logo_path = os.path.join(current_dir, "logo_upch.png")
 with open(logo_path, "rb") as image_file:
     encoded_logo = base64.b64encode(image_file.read()).decode()
 
-# Credenciales de inicio de sesión
-User = "41650931"
-Password = "cayetano"
+# Ruta al fondo de la universidad
+university_background = os.path.join(current_dir, "universidad.jpg")
 
 # Variable de estado para verificar si el usuario ha iniciado sesión
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
-# Función de inicio de sesión
-def login():
-    st.markdown(f"""
+# Función para cargar el estilo de fondo
+def load_background_style():
+    background_style = f"""
         <style>
+        body {{
+            background-image: url('file://{university_background}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
         .header-container {{
             display: flex;
             justify-content: center;
@@ -49,8 +54,17 @@ def login():
         .header-container h1 {{
             font-size: 2.5rem;
             margin: 0;
+            color: white;  /* Color del texto */
         }}
         </style>
+    """
+    st.markdown(background_style, unsafe_allow_html=True)
+
+# Función de inicio de sesión
+def login():
+    load_background_style()  # Cargar el estilo de fondo para la pantalla de inicio de sesión
+
+    st.markdown(f"""
         <div class="header-container">
             <img src="data:image/png;base64,{encoded_logo}" alt="Logo UPCH">
             <h1>Plataforma de Gestión de Cursos - UPCH</h1>
@@ -88,6 +102,8 @@ else:
     app.add_app("Asignación de Alumnos", asignacion_alumnos_app)
     app.add_app("Optimización de Horarios", optimizar_horarios_app)
 
+    load_background_style()  # Cargar el estilo de fondo para las otras secciones de la aplicación
+
     # Crear una barra de navegación en la parte superior
     selected_app = st.selectbox("Selecciona una sección", [app['title'] for app in app.apps])
 
@@ -95,4 +111,4 @@ else:
     for app in app.apps:
         if app['title'] == selected_app:
             app['function']()
-            break
+
