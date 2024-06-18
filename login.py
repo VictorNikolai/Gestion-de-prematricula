@@ -52,7 +52,7 @@ def login(encoded_logo, User, Password):
             st.success("¡Inicio de sesión exitoso!")
             st.balloons()
             # Redirigir a la página de inicio (home)
-            st.experimental_set_query_params(page="home")
+            st.query_params["page"] = "home"
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
 
@@ -74,3 +74,4 @@ def set_background():
         </style>
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
+
