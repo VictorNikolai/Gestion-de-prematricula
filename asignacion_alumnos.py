@@ -23,9 +23,15 @@ def app():
         submit = st.form_submit_button("Añadir")
 
         if submit:
-            new_asignacion = {'Alumno': alumno, 'Curso Asignado': curso}
-            asignacion = asignacion.append(new_asignacion, ignore_index=True)
-            st.success(f"Asignación para {alumno} añadido exitosamente")
+            new_asignacion = pd.DataFrame({'Alumno': [alumno], 'Curso Asignado': [curso]})
+            asignacion = pd.concat([asignacion, new_asignacion], ignore_index=True)
+            st.success(f"Asignación para {alumno} añadida exitosamente")
+
+    st.write("## Asignaciones Actualizadas")
+    st.write(asignacion)
+
+if __name__ == "__main__":
+    app()
 
     st.write("## Asignaciones Actualizadas")
     st.write(asignacion)
