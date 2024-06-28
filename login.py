@@ -43,7 +43,7 @@ def login(encoded_logo, User, Password):
             st.session_state.logged_in = True
             st.success("¡Inicio de sesión exitoso!")
             st.balloons()
-            st.query_params["page"] = "home"
+            st.experimental_rerun()
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
 
