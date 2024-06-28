@@ -22,9 +22,13 @@ def app():
         submit = st.form_submit_button("Añadir")
 
         if submit:
-            new_curso = {'Curso': curso, 'Ciclo': ciclo, 'Prerrequisito': prerrequisito}
-            data = data.append(new_curso, ignore_index=True)
+            new_curso = pd.DataFrame({'Curso': [curso], 'Ciclo': [ciclo], 'Prerrequisito': [prerrequisito]})
+            data = pd.concat([data, new_curso], ignore_index=True)
+            data.to_csv("database.csv", index=False)  # Guardar los cambios
             st.success(f"Curso {curso} añadido exitosamente")
 
     st.write("## Cursos Actualizados")
     st.write(data)
+
+if __name__ == "__main__":
+    app()
