@@ -8,7 +8,12 @@ def login(encoded_logo, User, Password):
     st.markdown(
         """
         <style>
-        .login-form {
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .form-container {
             max-width: 300px;
             margin: auto;
             padding: 20px;
@@ -17,7 +22,7 @@ def login(encoded_logo, User, Password):
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .input-field {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             width: 100%;
             padding: 10px;
             font-size: 16px;
@@ -25,7 +30,6 @@ def login(encoded_logo, User, Password):
             border-radius: 5px;
         }
         .submit-button {
-            margin-top: 20px;
             width: 100%;
             padding: 10px;
             font-size: 16px;
@@ -43,15 +47,14 @@ def login(encoded_logo, User, Password):
                 "<img src='data:image/png;base64,{}' class='img-fluid' width='200'>"
                 "</div>".format(encoded_logo), unsafe_allow_html=True)
 
-    st.markdown("<div class='title-container'><h1>🎓 Plataforma de Gestión de Cursos - UPCH</h1></div>", unsafe_allow_html=True)
-    st.markdown("<div class='subheader-container'><h3>Inicio de Sesión</h3></div>", unsafe_allow_html=True)
+    st.markdown("<div class='form-container'>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center;'><h1>🎓 Plataforma de Gestión de Cursos - UPCH</h1></div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; margin-bottom: 20px;'><h3>Inicio de Sesión</h3></div>", unsafe_allow_html=True)
 
     with st.form(key="login_form"):
-        st.markdown("<div class='login-form'>", unsafe_allow_html=True)
-        username = st.text_input("Usuario:", value="", help="Ingrese su usuario", key="username_input")
-        password = st.text_input("Contraseña:", type="password", value="", help="Ingrese su contraseña", key="password_input")
-        st.markdown("</div>", unsafe_allow_html=True)
-        submit_button = st.form_submit_button("Iniciar Sesión")
+        username = st.text_input("Usuario", value="", help="Ingrese su usuario", class_="input-field")
+        password = st.text_input("Contraseña", type="password", value="", help="Ingrese su contraseña", class_="input-field")
+        submit_button = st.form_submit_button("Iniciar Sesión", class_="submit-button")
 
     if submit_button:
         if username == User and password == Password:
@@ -61,6 +64,8 @@ def login(encoded_logo, User, Password):
             st.experimental_rerun()
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
+
+    st.markdown("</div>", unsafe_allow_html=True)  # Cerrar el contenedor form-container
 
 def set_background():
     background_url = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/cayetano.png"
@@ -74,7 +79,7 @@ def set_background():
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100vh; /* Ajusta según tus necesidades */
         }}
         </style>
     """
