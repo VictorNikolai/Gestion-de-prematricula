@@ -8,44 +8,64 @@ def login(encoded_logo, User, Password):
     st.markdown(
         """
         <style>
-        .logo-container {
+        .login-container {
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-        }
-        .title-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .subheader-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
+            height: 100vh;
+            background-image: url('https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/cayetano.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
         }
         .form-container {
             max-width: 300px;
-            margin: auto;
             padding: 20px;
-            background-color: #f9f9f9; /* Fondo gris */
+            background-color: #f9f9f9;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container .stTextInput {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 8px;
+            width: 100%;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .form-container .stButton {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .form-container .stButton:hover {
+            background-color: #45a049;
         }
         </style>
         """
         , unsafe_allow_html=True)
 
-    st.markdown("<div class='logo-container'>"
-                "<img src='data:image/png;base64,{}' class='img-fluid' width='200'>"
-                "</div>".format(encoded_logo), unsafe_allow_html=True)
-
-    st.markdown("<div class='title-container'><h1>🎓 Plataforma de Gestión de Cursos - UPCH</h1></div>", unsafe_allow_html=True)
-    st.markdown("<div class='subheader-container'><h3>Inicio de Sesión</h3></div>", unsafe_allow_html=True)
+    st.markdown("<div class='login-container'>", unsafe_allow_html=True)
+    st.markdown("<div class='form-container'>", unsafe_allow_html=True)
+    
+    st.image(university_logo, width=200)
+    st.markdown("<h1 style='text-align:center;'>🎓 Plataforma de Gestión de Cursos - UPCH</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align:center;'>Inicio de Sesión</h3>", unsafe_allow_html=True)
 
     with st.form(key="login_form"):
-        st.markdown("<div class='form-container'>", unsafe_allow_html=True)
-        username = st.text_input("Usuario:", value="", key="username")
-        password = st.text_input("Contraseña:", type="password", value="", key="password")
-        submit = st.form_submit_button("Iniciar Sesión")
+        username = st.text_input("Usuario:", value="", key="username", class_="stTextInput")
+        password = st.text_input("Contraseña:", type="password", value="", key="password", class_="stTextInput")
+        submit = st.form_submit_button("Iniciar Sesión", class_="stButton")
 
         if submit:
             if username == User and password == Password:
@@ -56,25 +76,12 @@ def login(encoded_logo, User, Password):
             else:
                 st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
 
-        st.markdown("</div>", unsafe_allow_html=True)  # Cerrar el contenedor form-container
+    st.markdown("</div>", unsafe_allow_html=True)  # Cerrar el contenedor form-container
+    st.markdown("</div>", unsafe_allow_html=True)  # Cerrar el contenedor login-container
 
 def set_background():
-    background_url = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/main/cayetano.png"
-    page_bg_img = f"""
-        <style>
-        .stApp {{
-            background-image: url("{background_url}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Ajusta según tus necesidades */
-        }}
-        </style>
-    """
-    st.markdown(page_bg_img, unsafe_allow_html=True)
+    pass  # Mantenemos la función set_background como está, ya que no la estamos utilizando actualmente.
 
 # Llamar a la función principal para ejecutar la aplicación
 login("encoded_logo_here", "tu_usuario", "tu_contraseña")
+
