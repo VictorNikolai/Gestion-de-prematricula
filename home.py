@@ -9,6 +9,8 @@ def app():
             justify-content: center;
             align-items: center;
             text-align: center;
+            height: 100vh;  /* Ajusta la altura al 100% del viewport */
+            margin-top: -50px;  /* Ajusta el margen superior para centrar mejor */
         }
         </style>
         """,
@@ -38,3 +40,5 @@ def app():
         st.write("Contactos principales del departamento de administración.")
 
     st.write("¡Explora y disfruta de la plataforma!")
+
+app()
