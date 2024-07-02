@@ -5,26 +5,21 @@ def app():
     # Abre la imagen que quieres mostrar
     image = Image.open('logo_upch.png')
 
-    # Muestra la imagen con un tamaño específico y centrada
-    st.image(image, caption='Logo UPCH', width=100, use_column_width=False, style='display: block; margin-left: auto; margin-right: auto;')
+    # Muestra la imagen con un tamaño específico
+    st.image(image, caption='Logo UPCH', width=100, use_column_width=False)
 
+    # Utiliza HTML para centrar la imagen
     st.markdown(
         """
-        <style>
-        .centered-title {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-top: -50px;  /* Ajusta el margen superior para centrar mejor */
-        }
-        </style>
-        """,
+        <div style='text-align: center;'>
+            <img src='data:image/png;base64,{}' alt='Logo UPCH' style='width: 100px;'>
+        </div>
+        """.format(image_to_base64(image)),
         unsafe_allow_html=True
     )
 
-    st.markdown("<h1 class='centered-title'>Bienvenido a la Página de Inicio</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 class='centered-text'>Para comenzar con la configuración del ciclo, por favor dirígete a la parte izquierda superior.</h3>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Bienvenido a la Página de Inicio</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>Para comenzar con la configuración del ciclo, por favor dirígete a la parte izquierda superior.</h3>", unsafe_allow_html=True)
 
     st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
 
@@ -64,5 +59,13 @@ def app():
             "- Jefe de Recursos Humanos: +51 910 555 666\n"
             "- Asistente Administrativo: +51 910 777 888"
         )
+
+def image_to_base64(image):
+    import base64
+    import io
+    buffered = io.BytesIO()
+    image.save(buffered, format="PNG")
+    img_str = base64.b64encode(buffered.getvalue()).decode()
+    return img_str
 
 app()
