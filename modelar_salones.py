@@ -22,12 +22,13 @@ def app():
     # Cargar datos de salones
     salones = load_data()
 
-    st.write("## Salones Disponibles")
+    # Centrar el título de la sección
+    st.markdown("<h2 style='text-align: center;'>Salones Disponibles</h2>", unsafe_allow_html=True)
     st.write(salones)
     
     # Permitir agregar nuevos salones
     with st.form(key='add_salon'):
-        st.write("### Añadir Nuevo Salón")
+        st.markdown("<h3 style='text-align: center;'>Añadir Nuevo Salón</h3>", unsafe_allow_html=True)
         salon = st.text_input("Salón")
         capacidad = st.number_input("Capacidad", min_value=1)
         ubicacion = st.text_input("Ubicación")
@@ -40,12 +41,13 @@ def app():
             st.success(f"Salón {salon} añadido exitosamente")
             st.experimental_rerun()
 
-    st.write("## Salones Actualizados")
+    # Mostrar salones actualizados centrados
+    st.markdown("<h2 style='text-align: center;'>Salones Actualizados</h2>", unsafe_allow_html=True)
     st.write(salones)
 
     # Permitir eliminar salones
     with st.form(key='delete_salon'):
-        st.write("### Eliminar Salón")
+        st.markdown("<h3 style='text-align: center;'>Eliminar Salón</h3>", unsafe_allow_html=True)
         salon_to_delete = st.selectbox("Selecciona un salón para eliminar", salones['Salón'])
         submit_delete = st.form_submit_button("Eliminar")
 
