@@ -48,7 +48,7 @@ def login(encoded_logo, User, Password):
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
 
 def set_background():
-    background_url = "https://raw.githubusercontent.com/VictorNikolai/Gestion-de-prematricula/06d35da9e3a46b3e4c80297a13c319f0097ce5ac/cayetano.png"
+    background_url = "https://github.com/VictorNikolai/Gestion-de-prematricula/blob/28ad8de26c28a02c5f397047a2d3625da65459d7/cayetano.png"
     page_bg_img = f"""
         <style>
         .stApp {{
