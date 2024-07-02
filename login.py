@@ -22,6 +22,21 @@ def login(encoded_logo, User, Password):
             justify-content: center;
             margin-bottom: 20px;
         }
+        .login-form {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-field {
+            margin-bottom: 15px;
+        }
+        .submit-button {
+            margin-top: 20px;
+            width: 100%;
+        }
         </style>
         """
         , unsafe_allow_html=True)
@@ -33,10 +48,10 @@ def login(encoded_logo, User, Password):
     st.markdown("<div class='title-container'><h1>🎓 Plataforma de Gestión de Cursos - UPCH</h1></div>", unsafe_allow_html=True)
     st.markdown("<div class='subheader-container'><h3>Inicio de Sesión</h3></div>", unsafe_allow_html=True)
 
-    with st.form(key="login_form"):
-        username = st.text_input("Usuario:", value="")
-        password = st.text_input("Contraseña:", type="password", value="")
-        submit = st.form_submit_button("Iniciar Sesión")
+    with st.form(key="login_form", class_="login-form"):
+        username = st.text_input("Usuario:", value="", class_="input-field")
+        password = st.text_input("Contraseña:", type="password", value="", class_="input-field")
+        submit = st.form_submit_button("Iniciar Sesión", class_="submit-button")
 
     if submit:
         if username == User and password == Password:
@@ -59,8 +74,11 @@ def set_background():
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Ajusta según tus necesidades */
+            height: 100vh;
         }}
         </style>
     """
     st.markdown(page_bg_img, unsafe_allow_html=True)
+
+# Llamar a la función principal para ejecutar la aplicación
+login("encoded_logo_here", "tu_usuario", "tu_contraseña")
