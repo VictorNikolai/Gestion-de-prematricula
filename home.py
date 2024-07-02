@@ -1,6 +1,13 @@
 import streamlit as st
+from PIL import Image
 
 def app():
+    # Abre la imagen que quieres mostrar
+    image = Image.open('logo_upch.png')
+
+    # Muestra la imagen utilizando st.image() antes del título principal
+    st.image(image, caption='Logo UPCH', use_column_width=True)
+
     st.markdown(
         """
         <style>
@@ -18,9 +25,7 @@ def app():
     )
 
     st.markdown("<h1 class='centered-title'>Bienvenido a la Página de Inicio</h1>", unsafe_allow_html=True)
-
-    # Aquí se coloca el texto debajo del título
-    st.write("Para comenzar con la configuración del ciclo, por favor dirígete a la parte izquierda superior.")
+    st.markdown("<h3 class='centered-text'>Para comenzar con la configuración del ciclo, por favor dirígete a la parte izquierda superior.</h3>", unsafe_allow_html=True)
 
     st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
 
