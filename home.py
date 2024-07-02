@@ -18,8 +18,10 @@ def app():
     )
 
     st.markdown("<h1 class='centered-title'>Bienvenido a la Página de Inicio</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 class='Para comenzar con la configuracion del ciclo, porfavor dirigase a la parte izquierda superior'></h3>", unsafe_allow_html=True)
-    
+    st.write("Para comenzar con la configuración del ciclo, por favor dirígete a la parte izquierda superior.")
+
+    st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
+
     st.header("Selecciona una sección para comenzar:")
 
     if st.button("Sobre Cayetano"):
@@ -58,4 +60,3 @@ def app():
         )
 
 app()
-
