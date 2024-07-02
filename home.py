@@ -20,6 +20,7 @@ def app():
         .centered-button {
             display: flex;
             justify-content: center;
+            margin-bottom: 10px;  /* Espacio entre botones */
         }
         </style>
         """,
@@ -32,15 +33,15 @@ def app():
 
     st.header("Selecciona una sección para comenzar:")
 
-    if st.button("Sobre Cayetano", key="sobre_cayetano", class_='centered-button'):
+    if st.button("Sobre Cayetano", key="sobre_cayetano"):
         st.write("Información sobre la historia y misión de la Universidad.")
-    if st.button("Admisión", key="admision", class_='centered-button'):
+    if st.button("Admisión", key="admision"):
         st.write("Requisitos y procedimientos para el proceso de admisión.")
-    if st.button("Teléfonos de Docentes", key="telefonos_docentes", class_='centered-button'):
+    if st.button("Teléfonos de Docentes", key="telefonos_docentes"):
         st.write("Lista de números de teléfono para contactar a los docentes.")
-    if st.button("Teléfonos de Ayuda", key="telefonos_ayuda", class_='centered-button'):
+    if st.button("Teléfonos de Ayuda", key="telefonos_ayuda"):
         st.write("Números de contacto para recibir ayuda y soporte técnico.")
-    if st.button("Teléfonos de Administración", key="telefonos_administracion", class_='centered-button'):
+    if st.button("Teléfonos de Administración", key="telefonos_administracion"):
         st.write("Contactos principales del departamento de administración.")
 
     st.markdown("<div class='centered-text'>¡Explora y disfruta de la plataforma!</div>", unsafe_allow_html=True)
