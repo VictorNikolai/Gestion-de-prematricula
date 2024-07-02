@@ -21,8 +21,14 @@ def save_data(ambientes, file_path):
 def app():
     st.title("Modelar Tipos de Ambientes - UPCH")
 
-    # Cargar datos de tipos de ambientes desde un archivo CSV existente o crear datos ficticios si no existe
-    ambientes = load_data('ambientes.csv')
+    # Permitir al usuario cargar un archivo CSV de tipos de ambientes desde su máquina
+    uploaded_file = st.file_uploader("Cargar archivo CSV de ambientes", type=['csv'])
+    if uploaded_file is not None:
+        # Si se cargó un archivo, cargar los datos desde el archivo CSV subido
+        ambientes = pd.read_csv(uploaded_file)
+    else:
+        # Si no se ha cargado ningún archivo, cargar datos ficticios por defecto
+        ambientes = load_data('ambientes.csv')
 
     # Mostrar los tipos de ambientes disponibles
     st.write("## Tipos de Ambientes Disponibles")
