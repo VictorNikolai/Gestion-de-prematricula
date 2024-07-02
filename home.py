@@ -18,6 +18,8 @@ def app():
     )
 
     st.markdown("<h1 class='centered-title'>Bienvenido a la Página de Inicio</h1>", unsafe_allow_html=True)
+
+    # Aquí se coloca el texto debajo del título
     st.write("Para comenzar con la configuración del ciclo, por favor dirígete a la parte izquierda superior.")
 
     st.write("Aquí puedes comenzar a explorar las funcionalidades de la plataforma.")
@@ -60,3 +62,4 @@ def app():
         )
 
 app()
+
