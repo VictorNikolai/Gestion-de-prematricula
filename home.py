@@ -1,6 +1,10 @@
 import streamlit as st
 
 def app():
+    # Configuración de la página
+    st.set_page_config(layout="wide", initial_sidebar_state='collapsed', page_title="Gestión de Cursos UPCH")
+
+    # Contenido de la aplicación
     st.markdown(
         """
         <style>
@@ -44,4 +48,8 @@ def app():
 
     st.markdown("<p class='centered-text'>¡Explora y disfruta de la plataforma!</p>", unsafe_allow_html=True)
 
-app()
+def main():
+    app()
+
+if __name__ == "__main__":
+    main()
