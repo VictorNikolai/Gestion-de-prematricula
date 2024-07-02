@@ -5,8 +5,8 @@ def app():
     # Abre la imagen que quieres mostrar
     image = Image.open('logo_upch.png')
 
-    # Muestra la imagen utilizando st.image() antes del título principal
-    st.image(image, caption='Logo UPCH', use_column_width=True)
+    # Muestra la imagen con un tamaño específico
+    st.image(image, caption='Logo UPCH', width=100, use_column_width=False)
 
     st.markdown(
         """
@@ -16,14 +16,13 @@ def app():
             justify-content: center;
             align-items: center;
             text-align: center;
-            height: 100vh;  /* Ajusta la altura al 100% del viewport */
             margin-top: -50px;  /* Ajusta el margen superior para centrar mejor */
         }
         </style>
         """,
         unsafe_allow_html=True
     )
-
+    
     st.markdown("<h1 class='centered-title'>Bienvenido a la Página de Inicio</h1>", unsafe_allow_html=True)
     st.markdown("<h3 class='centered-text'>Para comenzar con la configuración del ciclo, por favor dirígete a la parte izquierda superior.</h3>", unsafe_allow_html=True)
 
