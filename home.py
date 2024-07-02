@@ -5,8 +5,8 @@ def app():
     # Abre la imagen que quieres mostrar
     image = Image.open('logo_upch.png')
 
-    # Muestra la imagen con un tamaño específico
-    st.image(image, caption='Logo UPCH', width=100, use_column_width=False)
+    # Muestra la imagen con un tamaño específico y centrada
+    st.image(image, caption='Logo UPCH', width=100, use_column_width=False, style='display: block; margin-left: auto; margin-right: auto;')
 
     st.markdown(
         """
