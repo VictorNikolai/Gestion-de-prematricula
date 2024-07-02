@@ -1,40 +1,29 @@
+
 import streamlit as st
 import pandas as pd
 import os
 
-# Función para cargar los datos desde un archivo CSV o crear datos ficticios si no existe el archivo
 def load_data(file_path):
     if os.path.exists(file_path):
         return pd.read_csv(file_path)
     else:
-        ambientes_data = {
-            'Tipo de Ambiente': ['Laboratorio', 'Aula', 'Auditorio'],
-            'Descripción': ['Equipado con computadoras', 'Salón de clases estándar', 'Espacio para eventos grandes']
-        }
-        return pd.DataFrame(ambientes_data)
+        return pd.DataFrame()
 
-# Función para guardar los datos actualizados en un archivo CSV
 def save_data(ambientes, file_path):
     ambientes.to_csv(file_path, index=False)
 
-# Función principal que define la aplicación de Streamlit
 def app():
     st.title("Modelar Tipos de Ambientes - UPCH")
 
-    # Permitir al usuario cargar un archivo CSV de tipos de ambientes desde su máquina
     uploaded_file = st.file_uploader("Cargar archivo CSV de ambientes", type=['csv'])
     if uploaded_file is not None:
-        # Si se cargó un archivo, cargar los datos desde el archivo CSV subido
         ambientes = pd.read_csv(uploaded_file)
     else:
-        # Si no se ha cargado ningún archivo, cargar datos ficticios por defecto
         ambientes = load_data('ambientes.csv')
 
-    # Mostrar los tipos de ambientes disponibles
     st.write("## Tipos de Ambientes Disponibles")
     st.write(ambientes)
     
-    # Permitir agregar nuevos tipos de ambientes
     with st.form(key='add_ambiente'):
         st.write("### Añadir Nuevo Tipo de Ambiente")
         tipo = st.text_input("Tipo de Ambiente")
@@ -47,11 +36,9 @@ def app():
             save_data(ambientes, 'ambientes.csv')
             st.success(f"Tipo de Ambiente '{tipo}' añadido exitosamente")
 
-    # Mostrar los tipos de ambientes actualizados
     st.write("## Tipos de Ambientes Actualizados")
     st.write(ambientes)
 
-    # Permitir eliminar tipos de ambientes
     with st.form(key='delete_ambiente'):
         st.write("### Eliminar Tipo de Ambiente")
         ambiente_a_eliminar = st.selectbox("Selecciona el Tipo de Ambiente a eliminar", ambientes['Tipo de Ambiente'] if 'Tipo de Ambiente' in ambientes else [])
@@ -62,7 +49,6 @@ def app():
             save_data(ambientes, 'ambientes.csv')
             st.success(f"Tipo de Ambiente '{ambiente_a_eliminar}' eliminado exitosamente")
 
-    # Agregar un botón para descargar el CSV actualizado
     st.markdown("## Descargar CSV Actualizado")
     st.markdown("Haz clic abajo para descargar el archivo CSV actualizado.")
     st.download_button(
@@ -72,6 +58,5 @@ def app():
         mime='text/csv'
     )
 
-# Punto de entrada para ejecutar la aplicación
 if __name__ == '__main__':
     app()
