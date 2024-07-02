@@ -2,10 +2,8 @@ import streamlit as st
 from PIL import Image
 
 def app():
-    # Abre la imagen que quieres mostrar
     image = Image.open('logo_upch.png')
 
-    # Utiliza HTML para centrar la imagen
     st.markdown(
         """
         <div style='text-align: center;'>
