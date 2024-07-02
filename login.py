@@ -52,8 +52,15 @@ def login(encoded_logo, User, Password):
     st.markdown("<div style='text-align: center; margin-bottom: 20px;'><h3>Inicio de Sesión</h3></div>", unsafe_allow_html=True)
 
     with st.form(key="login_form"):
-        username = st.text_input("Usuario", value="", help="Ingrese su usuario", class_="input-field")
-        password = st.text_input("Contraseña", type="password", value="", help="Ingrese su contraseña", class_="input-field")
+        username = st.text_input("Usuario", value="", help="Ingrese su usuario", key="username")
+        password = st.text_input("Contraseña", type="password", value="", help="Ingrese su contraseña", key="password")
+        st.markdown("<style>.stTextInput>div>div>input[type='text'], .stTextInput>div>div>input[type='password'] {"
+                    "    width: 100%;"
+                    "    padding: 10px;"
+                    "    font-size: 16px;"
+                    "    border: 1px solid #ccc;"
+                    "    border-radius: 5px;"
+                    "}</style>", unsafe_allow_html=True)
         submit_button = st.form_submit_button("Iniciar Sesión", class_="submit-button")
 
     if submit_button:
