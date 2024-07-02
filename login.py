@@ -8,20 +8,6 @@ def login(encoded_logo, User, Password):
     st.markdown(
         """
         <style>
-        .logo-container {
-            display: flex;
-            justify-content: center;
-        }
-        .title-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .subheader-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
         .login-form {
             max-width: 300px;
             margin: auto;
@@ -32,10 +18,22 @@ def login(encoded_logo, User, Password):
         }
         .input-field {
             margin-bottom: 15px;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         .submit-button {
             margin-top: 20px;
             width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
         </style>
         """
@@ -48,10 +46,12 @@ def login(encoded_logo, User, Password):
     st.markdown("<div class='title-container'><h1>🎓 Plataforma de Gestión de Cursos - UPCH</h1></div>", unsafe_allow_html=True)
     st.markdown("<div class='subheader-container'><h3>Inicio de Sesión</h3></div>", unsafe_allow_html=True)
 
-    with st.form(key="login_form", class_="login-form"):
+    with st.form(key="login_form"):
+        st.markdown("<div class='login-form'>", unsafe_allow_html=True)
         username = st.text_input("Usuario:", value="", class_="input-field")
         password = st.text_input("Contraseña:", type="password", value="", class_="input-field")
         submit = st.form_submit_button("Iniciar Sesión", class_="submit-button")
+        st.markdown("</div>", unsafe_allow_html=True)
 
     if submit:
         if username == User and password == Password:
