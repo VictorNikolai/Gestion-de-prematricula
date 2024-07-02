@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import os
 
-# Función para cargar los datos desde un archivo CSV o crear datos ficticios si no existe el archivo
 def load_data(file_path):
     if os.path.exists(file_path):
         return pd.read_csv(file_path)
@@ -13,22 +12,21 @@ def load_data(file_path):
         }
         return pd.DataFrame(ambientes_data)
 
-# Función para guardar los datos actualizados en un archivo CSV
 def save_data(ambientes, file_path):
     ambientes.to_csv(file_path, index=False)
 
-# Función principal que define la aplicación de Streamlit
 def app():
     st.title("Modelar Tipos de Ambientes - UPCH")
 
-    # Cargar datos de tipos de ambientes desde un archivo CSV existente o crear datos ficticios si no existe
-    ambientes = load_data('ambientes.csv')
+    uploaded_file = st.file_uploader("Cargar archivo CSV de ambientes", type=['csv'])
+    if uploaded_file is not None:
+        ambientes = pd.read_csv(uploaded_file)
+    else:
+        ambientes = pd.DataFrame()
 
-    # Mostrar los tipos de ambientes disponibles
     st.write("## Tipos de Ambientes Disponibles")
     st.write(ambientes)
     
-    # Permitir agregar nuevos tipos de ambientes
     with st.form(key='add_ambiente'):
         st.write("### Añadir Nuevo Tipo de Ambiente")
         tipo = st.text_input("Tipo de Ambiente")
@@ -42,11 +40,9 @@ def app():
             st.success(f"Tipo de Ambiente '{tipo}' añadido exitosamente")
             st.experimental_rerun()
 
-    # Mostrar los tipos de ambientes actualizados
     st.write("## Tipos de Ambientes Actualizados")
     st.write(ambientes)
 
-    # Permitir eliminar tipos de ambientes
     with st.form(key='delete_ambiente'):
         st.write("### Eliminar Tipo de Ambiente")
         ambiente_a_eliminar = st.selectbox("Selecciona el Tipo de Ambiente a eliminar", ambientes['Tipo de Ambiente'] if 'Tipo de Ambiente' in ambientes else [])
@@ -58,7 +54,14 @@ def app():
             st.success(f"Tipo de Ambiente '{ambiente_a_eliminar}' eliminado exitosamente")
             st.experimental_rerun()
 
-# Punto de entrada para ejecutar la aplicación
+    st.markdown("## Descargar CSV Actualizado")
+    st.markdown("Haz clic abajo para descargar el archivo CSV actualizado.")
+    st.download_button(
+        label="Descargar CSV",
+        data=ambientes.to_csv(index=False),
+        file_name='ambientes_actualizados.csv',
+        mime='text/csv'
+    )
+
 if __name__ == '__main__':
     app()
-
