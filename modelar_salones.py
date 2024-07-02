@@ -3,28 +3,28 @@ import pandas as pd
 import os
 
 # Función para cargar los datos desde un archivo CSV o crear datos ficticios si no existe el archivo
-def load_data():
-    if os.path.exists('salones.csv'):
-        return pd.read_csv('salones.csv')
+def load_data(file_path):
+    if os.path.exists(file_path):
+        return pd.read_csv(file_path)
     else:
-        # Datos ficticios de salones para usar si no existe el archivo CSV
-        salones_data = {
-            'salon': ['A101', 'B202', 'C303', 'D404'],
-            'capacidad': [30, 40, 50, 35],
-            'ubicacion': ['Edificio A', 'Edificio B', 'Edificio C', 'Edificio D']
-        }
-        return pd.DataFrame(salones_data)
+        return pd.DataFrame()
 
 # Función para guardar los datos actualizados en un archivo CSV
-def save_data(salones):
-    salones.to_csv('salones.csv', index=False)
+def save_data(salones, file_path):
+    salones.to_csv(file_path, index=False)
 
 # Función principal que define la aplicación de Streamlit
 def app():
     st.title("Modelar Salones - UPCH")
 
-    # Cargar datos de salones
-    salones = load_data()
+    # Permitir al usuario cargar un archivo CSV desde su máquina
+    uploaded_file = st.file_uploader("Cargar archivo CSV de salones", type=['csv'])
+    if uploaded_file is not None:
+        # Cargar los datos desde el archivo CSV subido por el usuario
+        salones = pd.read_csv(uploaded_file)
+    else:
+        # Si no se ha cargado ningún archivo, inicializar con un DataFrame vacío
+        salones = pd.DataFrame()
 
     # Mostrar los salones disponibles
     st.write("## Salones Disponibles")
@@ -41,9 +41,7 @@ def app():
         if submit:
             new_salon = pd.DataFrame({'salon': [salon], 'capacidad': [capacidad], 'ubicacion': [ubicacion]})
             salones = pd.concat([salones, new_salon], ignore_index=True)
-            save_data(salones)
             st.success(f"Salón {salon} añadido exitosamente")
-            st.experimental_rerun()
 
     # Mostrar los salones actualizados
     st.write("## Salones Actualizados")
@@ -52,14 +50,12 @@ def app():
     # Permitir eliminar salones
     with st.form(key='delete_salon'):
         st.write("### Eliminar Salón")
-        salon_to_delete = st.selectbox("Selecciona un salón para eliminar", salones['salon'])
+        salon_to_delete = st.selectbox("Selecciona un salón para eliminar", salones['salon'] if 'salon' in salones else [])
         submit_delete = st.form_submit_button("Eliminar")
 
         if submit_delete:
             salones = salones[salones['salon'] != salon_to_delete]
-            save_data(salones)
             st.success(f"Salón {salon_to_delete} eliminado exitosamente")
-            st.experimental_rerun()
 
     # Agregar un botón para descargar el CSV actualizado
     st.markdown("## Descargar CSV Actualizado")
@@ -71,7 +67,9 @@ def app():
         mime='text/csv'
     )
 
+    # Guardar los cambios en el archivo CSV
+    save_data(salones, 'salones.csv')
+
 # Punto de entrada para ejecutar la aplicación
 if __name__ == '__main__':
     app()
-
