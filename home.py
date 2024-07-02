@@ -22,7 +22,7 @@ def app():
         """,
         unsafe_allow_html=True
     )
-    
+
     st.markdown("<h1 class='centered-title'>Bienvenido a la Página de Inicio</h1>", unsafe_allow_html=True)
     st.markdown("<h3 class='centered-text'>Para comenzar con la configuración del ciclo, por favor dirígete a la parte izquierda superior.</h3>", unsafe_allow_html=True)
 
@@ -66,4 +66,3 @@ def app():
         )
 
 app()
-
