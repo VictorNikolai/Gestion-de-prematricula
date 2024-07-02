@@ -48,12 +48,12 @@ def login(encoded_logo, User, Password):
 
     with st.form(key="login_form"):
         st.markdown("<div class='login-form'>", unsafe_allow_html=True)
-        username = st.text_input("Usuario:", value="", class_="input-field")
-        password = st.text_input("Contraseña:", type="password", value="", class_="input-field")
-        submit = st.form_submit_button("Iniciar Sesión", class_="submit-button")
+        username = st.text_input("Usuario:", value="", help="Ingrese su usuario", key="username_input")
+        password = st.text_input("Contraseña:", type="password", value="", help="Ingrese su contraseña", key="password_input")
+        submit_button = st.form_submit_button("Iniciar Sesión", class_="submit-button")
         st.markdown("</div>", unsafe_allow_html=True)
 
-    if submit:
+    if submit_button:
         if username == User and password == Password:
             st.session_state.logged_in = True
             st.success("¡Inicio de sesión exitoso!")
