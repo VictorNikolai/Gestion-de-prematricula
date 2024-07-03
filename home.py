@@ -13,7 +13,7 @@ def app():
         unsafe_allow_html=True
     )
 
-    st.markdown("<h1 style='text-align: center;'>Bienvenido a la Página de Inicio</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>𝙱𝚒𝚎𝚗𝚟𝚎𝚗𝚒𝚍𝚘 𝚊 𝚕𝚊 𝚙𝚊́𝚐𝚒𝚗𝚊 𝚍𝚎 𝙸𝚗𝚒𝚌𝚒𝚘</h1>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center;'>Para comenzar con la configuración del ciclo, por favor dirígete a la parte izquierda superior.</h6>", unsafe_allow_html=True)
 
     
