@@ -30,7 +30,7 @@ def login(encoded_logo, User, Password):
                 "<img src='data:image/png;base64,{}' class='img-fluid' width='200'>"
                 "</div>".format(encoded_logo), unsafe_allow_html=True)
 
-    st.markdown("<div class='title-container'><h1>🎓 Plataforma de Gestión de Cursos - UPCH</h1></div>", unsafe_allow_html=True)
+    st.markdown("<div class='title-container'><h1>🎓 𝙿𝙻𝙰𝚃𝙰𝙵𝙾𝚁𝙼𝙰 𝙳𝙴 𝙶𝙴𝚂𝚃𝙸𝙾́𝙽 𝙳𝙴 𝙲𝚄𝚁𝚂𝙾𝚂 - 𝚄𝙿𝙲𝙷</h1></div>", unsafe_allow_html=True)
     st.markdown("<div class='subheader-container'><h3>Inicio de Sesión</h3></div>", unsafe_allow_html=True)
 
     with st.form(key="login_form"):
