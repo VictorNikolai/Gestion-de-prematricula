@@ -30,5 +30,5 @@ def app():
     st.write("## Cursos Actualizados")
     st.write(data)
 
-if _name_ == "_main_":
+if _name_ == "__main__":
     app()
