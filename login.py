@@ -42,7 +42,6 @@ def login(encoded_logo, User, Password):
         if username == User and password == Password:
             st.session_state.logged_in = True
             st.success("¡Inicio de sesión exitoso!")
-            st.balloons()
             st.experimental_rerun()
         else:
             st.error("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.")
