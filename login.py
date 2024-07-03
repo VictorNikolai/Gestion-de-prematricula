@@ -23,8 +23,8 @@ def login(encoded_logo, User, Password):
             margin-bottom: 20px;
         }
         </style>
-        """
-        , unsafe_allow_html=True)
+        """, unsafe_allow_html=True
+    )
 
     st.markdown("<div class='logo-container'>"
                 "<img src='data:image/png;base64,{}' class='img-fluid' width='200'>"
