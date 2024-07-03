@@ -104,7 +104,16 @@ def app():
                 if clases_dia[i][0][2] < clases_dia[i + 1][0][1]:  # Hueco entre clases
                     penalizacion += (clases_dia[i + 1][0][1] - clases_dia[i][0][2]) * 0.5
 
-        return total_creditos - penalizacion  # Maximizar créditos minimizando penalizaciones
+        # Premiaciones por horarios deseados
+        for horario, creditos in horarios:
+        dia, inicio, fin = horario
+        if 8 <= inicio <= 11:  # Clases en la mañana
+            premiacion += 2
+        if 14 <= inicio <= 18:  # Clases en la tarde temprano
+            premiacion += 1
+
+      return total_creditos - penalizacion + premiacion  # Maximizar créditos minimizando penalizaciones
+        
 
     # Generar población inicial y evaluar
     poblacion = [generar_individuo() for _ in range(tamano_poblacion)]
