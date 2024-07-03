@@ -1,11 +1,7 @@
 import streamlit as st
 from PIL import Image
-
 def app():
-    # Abre la imagen que quieres mostrar
     image = Image.open('logo_upch.png')
-
-    # Utiliza HTML para centrar la imagen
     st.markdown(
         """
         <div style='text-align: center;'>
@@ -15,10 +11,10 @@ def app():
         unsafe_allow_html=True
     )
 
-    st.markdown("<h1 style='text-align: center;'>Bienvenido a la Página de Inicio</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>𝙱𝚒𝚎𝚗𝚟𝚎𝚗𝚒𝚍𝚘 𝚊 𝚕𝚊 𝚙𝚊́𝚐𝚒𝚗𝚊 𝚍𝚎 𝙸𝚗𝚒𝚌𝚒𝚘</h1>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center;'>Para comenzar con la configuración del ciclo, por favor dirígete a la parte izquierda superior.</h6>", unsafe_allow_html=True)
 
-    
+
     st.header("Selecciona una sección para comenzar:")
 
     if st.button("Sobre Cayetano"):
@@ -55,7 +51,6 @@ def app():
             "- Jefe de Recursos Humanos: +51 910 555 666\n"
             "- Asistente Administrativo: +51 910 777 888"
         )
-
 def image_to_base64(image):
     import base64
     import io
@@ -63,5 +58,4 @@ def image_to_base64(image):
     image.save(buffered, format="PNG")
     img_str = base64.b64encode(buffered.getvalue()).decode()
     return img_str
-
 app()
