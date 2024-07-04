@@ -20,23 +20,23 @@ Como usuarios principales del sistema, los coordinadores de carrera enfrentan di
 
 ## Integrantes:
 
-- 📫 Cómo comunicarse conmigo **[sebastian.saldana@upch.pe](mailto:sebastian.saldana@upch.pe)**
+- 📫 **[sebastian.saldana@upch.pe](mailto:sebastian.saldana@upch.pe)**
 
-- 📫 Cómo comunicarse conmigo **[dahayra.more@upch.pe](mailto:dahayra.more@upch.pe)**
+- 📫 **[dahayra.more@upch.pe](mailto:dahayra.more@upch.pe)**
 
-- 📫 Cómo comunicarse conmigo **[victor.huarcaya@upch.pe](mailto:victor.huarcaya@upch.pe)**
+- 📫 **[victor.huarcaya@upch.pe](mailto:victor.huarcaya@upch.pe)**
 
-- 📫 Cómo comunicarse conmigo **[victoria.castro@upch.pe](mailto:victoria.castro@upch.pe)**
+- 📫 **[victoria.castro@upch.pe](mailto:victoria.castro@upch.pe)**
 
-- 📫 Cómo comunicarse conmigo **[bryan.penaloza@upch.pe](mailto:bryan.penaloza@upch.pe)**
+- 📫 **[bryan.penaloza@upch.pe](mailto:bryan.penaloza@upch.pe)**
 
-- 📫 Cómo comunicarse conmigo **[ciara.mendez@upch.pe](mailto:ciara.mendez@upch.pe)**
+- 📫 **[ciara.mendez@upch.pe](mailto:ciara.mendez@upch.pe)**
 
-- 📫 Cómo comunicarse conmigo **[valery.siccha@upch.pe](mailto:valery.siccha@upch.pe)**
+- 📫 **[valery.siccha@upch.pe](mailto:valery.siccha@upch.pe)**
 
-- 📫 Cómo comunicarse conmigo **[rodrigo.rodriguez.r@upch.pe](mailto:rodrigo.rodriguez.r@upch.pe)**
+- 📫 **[rodrigo.rodriguez.r@upch.pe](mailto:rodrigo.rodriguez.r@upch.pe)**
 
-- 📫 Cómo comunicarse conmigo **[leonardo.mejia.l@upch.pe](mailto:leonardo.mejia.l@upch.pe)**
+- 📫 **[leonardo.mejia.l@upch.pe](mailto:leonardo.mejia.l@upch.pe)**
 
 
 
