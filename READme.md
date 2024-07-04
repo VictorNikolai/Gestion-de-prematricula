@@ -32,11 +32,11 @@ Como usuarios principales del sistema, los coordinadores de carrera enfrentan di
 
 
 
-## Diagrama de clase 
+## Diagrama de Clase Código
 <details><summary> <b>Expand</b> </summary>
-  ``` shell
+
+``` shell
 @startuml
-' Definir las clases con sus atributos y métodos
 
 class Curso {
     - nombre: String
@@ -98,8 +98,6 @@ class MultiApp {
 interface Application {
     run()
 }
-
-' Definir las relaciones entre las clases
 
 Curso "1" -down-> "1..*" Alumno: asignado a
 Asignacion "1" -- "1" Alumno: tiene
