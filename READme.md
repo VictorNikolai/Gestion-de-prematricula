@@ -19,16 +19,33 @@ Como usuarios principales del sistema, los coordinadores de carrera enfrentan di
 
 
 ## Integrantes:
-- [Saldaña Rodríguez, Sebastián Antonio](sebastian.saldana@upch.pe)
-- [More Ayay, Dahayra Xiomara](dahayra.more@upch.pe)
-- [Huarcaya Pumacayo, Victor Nikolai](victor.huarcaya@upch.pe)
-- [Castro Pichihua, Victoria Beatriz](victoria.castro@upch.pe)
-- [Peñaloza Huaman, Bryan Alexander](bryan.penaloza@upch.pe)
-- [Mendez Cruz, Ciara Solange](ciara.mendez@upch.pe)
-- [Siccha Huayanay, Valery Krystal](valery.siccha@upch.pe)
-- [Rodriguez Reategui, Rodrigo](rodrigo.rodriguez.r@upch.pe)
-- [Mejia Lopez, Leonardo Camilo](leonardo.mejia.l@upch.pe)
 
+- 📫 Cómo comunicarse conmigo **[sebastian.saldana@upch.pe](mailto:sebastian.saldana@upch.pe)**
+  <p>Estudiante de ingeniería informática en la <a href="https://cayetano.edu.pe/"><b>Universidad Cayetano Heredia</b></a><img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="30"></p>
+
+- 📫 Cómo comunicarse conmigo **[dahayra.more@upch.pe](mailto:dahayra.more@upch.pe)**
+  <p>Estudiante de ingeniería informática en la <a href="https://cayetano.edu.pe/"><b>Universidad Cayetano Heredia</b></a><img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="30"></p>
+
+- 📫 Cómo comunicarse conmigo **[victor.huarcaya@upch.pe](mailto:victor.huarcaya@upch.pe)**
+  <p>Estudiante de ingeniería informática en la <a href="https://cayetano.edu.pe/"><b>Universidad Cayetano Heredia</b></a><img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="30"></p>
+
+- 📫 Cómo comunicarse conmigo **[victoria.castro@upch.pe](mailto:victoria.castro@upch.pe)**
+  <p>Estudiante de ingeniería informática en la <a href="https://cayetano.edu.pe/"><b>Universidad Cayetano Heredia</b></a><img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="30"></p>
+
+- 📫 Cómo comunicarse conmigo **[bryan.penaloza@upch.pe](mailto:bryan.penaloza@upch.pe)**
+  <p>Estudiante de ingeniería informática en la <a href="https://cayetano.edu.pe/"><b>Universidad Cayetano Heredia</b></a><img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="30"></p>
+
+- 📫 Cómo comunicarse conmigo **[ciara.mendez@upch.pe](mailto:ciara.mendez@upch.pe)**
+  <p>Estudiante de ingeniería informática en la <a href="https://cayetano.edu.pe/"><b>Universidad Cayetano Heredia</b></a><img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="30"></p>
+
+- 📫 Cómo comunicarse conmigo **[valery.siccha@upch.pe](mailto:valery.siccha@upch.pe)**
+  <p>Estudiante de ingeniería informática en la <a href="https://cayetano.edu.pe/"><b>Universidad Cayetano Heredia</b></a><img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="30"></p>
+
+- 📫 Cómo comunicarse conmigo **[rodrigo.rodriguez.r@upch.pe](mailto:rodrigo.rodriguez.r@upch.pe)**
+  <p>Estudiante de ingeniería informática en la <a href="https://cayetano.edu.pe/"><b>Universidad Cayetano Heredia</b></a><img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="30"></p>
+
+- 📫 Cómo comunicarse conmigo **[leonardo.mejia.l@upch.pe](mailto:leonardo.mejia.l@upch.pe)**
+  <p>Estudiante de ingeniería informática en la <a href="https://cayetano.edu.pe/"><b>Universidad Cayetano Heredia</b></a><img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="30"></p>
 
 
 
