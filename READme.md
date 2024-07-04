@@ -19,15 +19,16 @@ Como usuarios principales del sistema, los coordinadores de carrera enfrentan di
 
 
 ## Integrantes:
-- Saldaña Rodríguez, Sebastián Antonio 
-- More Ayay, Dahayra Xiomara 
-- Huarcaya Pumacayo, Victor Nikolai
-- Castro Pichihua, Victoria Beatriz 
-- Peñaloza Huaman, Bryan Alexander
-- Mendez Cruz, Ciara Solange
-- Siccha Huayanay, Valery Krystal
-- Rodriguez Reategui, Rodrigo
-- Mejia Lopez, Leonardo Camilo
+- [Saldaña Rodríguez, Sebastián Antonio](sebastian.saldana@upch.pe)
+- [More Ayay, Dahayra Xiomara](dahayra.more@upch.pe)
+- [Huarcaya Pumacayo, Victor Nikolai](victor.huarcaya@upch.pe)
+- [Castro Pichihua, Victoria Beatriz](victoria.castro@upch.pe)
+- [Peñaloza Huaman, Bryan Alexander](bryan.penaloza@upch.pe)
+- [Mendez Cruz, Ciara Solange](ciara.mendez@upch.pe)
+- [Siccha Huayanay, Valery Krystal](valery.siccha@upch.pe)
+- [Rodriguez Reategui, Rodrigo](rodrigo.rodriguez.r@upch.pe)
+- [Mejia Lopez, Leonardo Camilo](leonardo.mejia.l@upch.pe)
+
 
 
 
