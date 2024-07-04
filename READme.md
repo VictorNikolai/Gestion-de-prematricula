@@ -32,7 +32,7 @@ Como usuarios principales del sistema, los coordinadores de carrera enfrentan di
 
 
 
-## Diagrama de Clase Código
+## Código de Diagrama de Clase
 <details><summary> <b>Expand</b> </summary>
 
 ``` shell
@@ -113,3 +113,6 @@ Login "1" -down-> "1" MultiApp: permite acceso
 @enduml
 
 ```
+<p align="center">
+  <img src="https://github.com/Victor-Nikolai/Recursos/blob/main/Diagrama%20de%20Clase%20.png" alt="image">
+</p>
