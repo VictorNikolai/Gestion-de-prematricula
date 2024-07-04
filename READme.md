@@ -41,7 +41,7 @@ Como usuarios principales del sistema, los coordinadores de carrera enfrentan di
 
 
 
-## Código de Diagrama de Clase
+## Código del Diagrama de Clase
 <details><summary> <b>Expand</b> </summary>
 
 ``` shell
