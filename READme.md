@@ -9,8 +9,8 @@
 ## Tabla de contenidos:
 ---
 - [Descripción](#Descripción)
-- [Integrantes:](#Integrantes)
-- [Diagrama de Clase](#DiagramadeClase)
+- [Integrantes](#Integrantes)
+- [Diagrama_de_Clase](#DiagramadeClase)
 
 ## Descripción:
 
