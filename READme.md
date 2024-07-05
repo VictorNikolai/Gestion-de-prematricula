@@ -10,6 +10,7 @@
 ---
 - [Descripción](#Descripción)
 - [Integrantes:](#Figma)
+- [Diagrama de Clase](#Diagramadeclase)
 
 ## Descripción:
 
@@ -21,24 +22,14 @@ Como usuarios principales del sistema, los coordinadores de carrera enfrentan di
 ## Integrantes:
 
 - 📫 **[sebastian.saldana@upch.pe](mailto:sebastian.saldana@upch.pe)**
-
 - 📫 **[dahayra.more@upch.pe](mailto:dahayra.more@upch.pe)**
-
 - 📫 **[victor.huarcaya@upch.pe](mailto:victor.huarcaya@upch.pe)**
-
 - 📫 **[victoria.castro@upch.pe](mailto:victoria.castro@upch.pe)**
-
 - 📫 **[bryan.penaloza@upch.pe](mailto:bryan.penaloza@upch.pe)**
-
 - 📫 **[ciara.mendez@upch.pe](mailto:ciara.mendez@upch.pe)**
-
 - 📫 **[valery.siccha@upch.pe](mailto:valery.siccha@upch.pe)**
-
 - 📫 **[rodrigo.rodriguez.r@upch.pe](mailto:rodrigo.rodriguez.r@upch.pe)**
-
 - 📫 **[leonardo.mejia.l@upch.pe](mailto:leonardo.mejia.l@upch.pe)**
-
-
 
 
 ## Diagrama de Clase
