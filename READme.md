@@ -1,11 +1,6 @@
 <h1 align="center" id="title">Proyecto de Análisis y Diseño de Algoritmos
 <h1 align="center" id="title">Gestión de PreMatricula</h1>
 
-<div align="center">
-  <img src="https://i.ytimg.com/vi/FvcDlnQgZrY/maxresdefault.jpg">
-</div>
-
-
 ## Tabla de contenidos:
 ---
 - [Descripción](#Descripción)
