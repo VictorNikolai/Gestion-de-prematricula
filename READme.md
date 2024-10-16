@@ -2,7 +2,7 @@
 <h1 align="center" id="title">Gestión de PreMatricula</h1>
 
 <div align="center">
-  <img src="https://cdn.www.gob.pe/uploads/document/file/5540193/880238-logo-sme.png" alt="Descripción de la imagen">
+  <img src="https://i.ytimg.com/vi/FvcDlnQgZrY/maxresdefault.jpg">
 </div>
 
 
